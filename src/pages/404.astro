@@ -1,0 +1,21 @@
+---
+import ArrowLink from '../components/ArrowLink.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page Not Found | Pierce O’Brien Piano"
+  description="The requested page could not be found."
+  noindex
+>
+  <section class="section section--dark">
+    <div
+      class="shell reading-width"
+      style="min-height: 55vh; display: grid; align-content: center;"
+    >
+      <h1>That page is no longer in tune.</h1>
+      <p>The address may have changed as the site was rebuilt.</p>
+      <ArrowLink href="/" label="Return Home" />
+    </div>
+  </section>
+</BaseLayout>

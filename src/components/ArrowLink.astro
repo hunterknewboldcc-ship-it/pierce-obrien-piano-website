@@ -1,0 +1,22 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  class?: string;
+}
+
+const { href, label, class: className } = Astro.props;
+---
+
+<a class:list={['text-link', className]} href={href}>
+  {label}
+  <svg viewBox="0 0 20 20" aria-hidden="true">
+    <path
+      d="M3 10h13m-5-5 5 5-5 5"
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="1.4"></path>
+  </svg>
+</a>

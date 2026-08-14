@@ -1,0 +1,83 @@
+---
+import PageIntro from '../components/PageIntro.astro';
+import PendingCopy from '../components/PendingCopy.astro';
+import { MEDIA } from '../content/media';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const resources = [
+  {
+    title: 'How often should a piano be tuned?',
+    description: 'A direct guide that will distinguish general care from piano-specific advice.',
+  },
+  {
+    title: 'Utah’s dry climate and your piano',
+    description: 'Humidity, seasonal change, stability, and practical care habits.',
+  },
+  {
+    title: 'Tuning vs. regulation vs. voicing',
+    description: 'The difference between pitch, touch, response, and tonal character.',
+  },
+  {
+    title: 'What to know after moving a piano',
+    description: 'The history and environmental details worth sharing before an assessment.',
+  },
+  {
+    title: 'Light cleaning vs. deep cleaning',
+    description: 'A condition-aware explanation of the two planned cleaning scopes.',
+  },
+  {
+    title: 'Before you buy a used piano',
+    description: 'Questions a technician can help you ask before committing to an instrument.',
+  },
+];
+---
+
+<BaseLayout
+  title="Piano Care Resources | Pierce O’Brien Piano"
+  description="Explore the planned piano-care guide library covering tuning, touch, tone, cleaning, moving, buying, and Utah’s climate."
+>
+  <PageIntro
+    title="Piano Care Resources"
+    introduction="This library is organized around practical piano-owner decisions: when pitch needs attention, how touch and tone differ, what changes after a move, and how climate and condition shape care."
+    image={MEDIA.regulation}
+    imageAlt="Detailed view of an upright piano action and hammers"
+    actionLabel="Explore Services"
+    actionHref="/#services"
+  />
+
+  <section class="section section--paper">
+    <div class="shell">
+      <div class="section-heading">
+        <h2>Guides built around real questions.</h2>
+        <p>
+          Each finished guide will answer its title early, link to the relevant service, and give
+          the owner a practical next step.
+        </p>
+      </div>
+      <div class="resource-rail">
+        {
+          resources.map((resource) => (
+            <article class="resource-item">
+              <h3>{resource.title}</h3>
+              <p>{resource.description}</p>
+              <PendingCopy>
+                Technically reviewed guide copy and final internal links are pending.
+              </PendingCopy>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell reading-width">
+      <h2>Editorial standard</h2>
+      <p>
+        Resource copy should be reviewed for technical accuracy, separate general guidance from an
+        in-person diagnosis, and avoid using repeated city names as a substitute for useful local
+        context.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

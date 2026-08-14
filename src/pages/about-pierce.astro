@@ -1,0 +1,125 @@
+---
+import { Image } from 'astro:assets';
+
+import ArrowLink from '../components/ArrowLink.astro';
+import PageIntro from '../components/PageIntro.astro';
+import PendingCopy from '../components/PendingCopy.astro';
+import { MEDIA } from '../content/media';
+import { SITE } from '../content/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About Pierce O’Brien | Pierce O’Brien Piano"
+  description="Meet Pierce O’Brien and learn about the careful listening, assessment, and plain-language guidance behind his piano work."
+>
+  <PageIntro
+    title="About Pierce"
+    introduction="Pierce O’Brien is the named technician behind every appointment—a careful listener who treats tuning as part of a larger relationship between the piano, the player, and the room."
+    image={MEDIA.portrait}
+    imageAlt="Portrait of Pierce O’Brien seated in front of a grand piano"
+    imagePosition="center 28%"
+    actionLabel="Book With Pierce"
+  />
+
+  <section class="section section--paper">
+    <div class="portrait-layout shell">
+      <div class="media-frame">
+        <Image
+          src={MEDIA.workingMonochrome}
+          alt="Pierce O’Brien working at the open strings of a grand piano"
+          widths={[640, 960, 1280]}
+          sizes="(max-width: 960px) 100vw, 40vw"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <div>
+        <h2>A career that began with one piano.</h2>
+        <p>
+          Pierce’s path into piano technology began when a choir member gave him a baby grand. He
+          refurbished and reconditioned the instrument, learned the fundamentals of tuning, and used
+          that experience as a starting point for deeper study and a career in piano care.
+        </p>
+        <p>
+          Today, the work is still grounded in the same instinct: listen closely, understand the
+          instrument in front of you, and explain what matters without making the owner feel out of
+          their depth.
+        </p>
+        <PendingCopy>
+          Exact apprenticeship, experience, and service-count wording requires final owner
+          verification before it appears here.
+        </PendingCopy>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-heading">
+        <h2>Quiet confidence, visible in the process.</h2>
+        <p>
+          Quality is communicated through assessment, careful work, honest limits, and useful next
+          steps—not comparison or hype.
+        </p>
+      </div>
+      <div class="process-rail">
+        <section class="process-step">
+          <span>01</span>
+          <h3>Precise</h3>
+          <p>Specific about what is being heard, assessed, and addressed.</p>
+        </section>
+        <section class="process-step">
+          <span>02</span>
+          <h3>Observant</h3>
+          <p>Attentive to pitch, touch, tone, condition, and the player’s goals.</p>
+        </section>
+        <section class="process-step">
+          <span>03</span>
+          <h3>Approachable</h3>
+          <p>Plain language and respect for any piano that matters to its owner.</p>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--paper">
+    <div class="owner-event shell">
+      <div class="owner-event-copy">
+        <h2>A record of continued study.</h2>
+        <p>
+          This owner-supplied photograph records Pierce at the 2026 Piano Technicians Guild
+          convention. Exact public credential wording remains absent from the site facts and copy
+          until the owner approves it.
+        </p>
+      </div>
+      <figure class="owner-event-photo">
+        <Image
+          src={MEDIA.rptEvent}
+          alt="Pierce O’Brien beside an event display at a piano-technician convention"
+          widths={[420, 720, 1080, 1400]}
+          sizes="(max-width: 960px) 86vw, 42vw"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>Owner-supplied convention photograph.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--dark statement">
+    <div class="shell">
+      <p class="statement-copy">
+        The value of a piano is not limited to its price. A family’s first upright deserves the same
+        honest attention as a performance grand.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--paper">
+    <div class="closing-action shell">
+      <h2>Work directly with the technician.</h2>
+      <ArrowLink href={SITE.booking.internalPath} label="Book Now" />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,133 @@
+---
+import type { GetStaticPaths } from 'astro';
+
+import ArrowLink from '../components/ArrowLink.astro';
+import PageIntro from '../components/PageIntro.astro';
+import PendingCopy from '../components/PendingCopy.astro';
+import { MEDIA } from '../content/media';
+import { SERVICES, SERVICE_BY_SLUG, SITE, type Service } from '../content/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+export const getStaticPaths = (() =>
+  SERVICES.map((service) => ({
+    params: { service: service.slug },
+    props: { service },
+  }))) satisfies GetStaticPaths;
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props as Props;
+const image = MEDIA[service.image];
+
+const sectionId = (heading: string) =>
+  heading
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+
+const standaloneRelated = {
+  'service-area-travel': { title: 'Service Area & Travel', href: '/service-area-travel/' },
+};
+
+const related = service.related
+  .map((slug) => {
+    const relatedService = SERVICE_BY_SLUG.get(slug);
+    if (relatedService) return { title: relatedService.title, href: `/${relatedService.slug}/` };
+    return standaloneRelated[slug as keyof typeof standaloneRelated];
+  })
+  .filter(Boolean);
+
+const canonical = `${SITE.domain}/${service.slug}/`;
+const serviceSchema = {
+  '@type': 'Service',
+  '@id': `${canonical}#service`,
+  name: service.title,
+  serviceType: service.title,
+  description: service.introduction,
+  url: canonical,
+  provider: { '@id': `${SITE.domain}/#organization` },
+};
+---
+
+<BaseLayout
+  title={service.metaTitle}
+  description={service.metaDescription}
+  schema={[serviceSchema]}
+>
+  <PageIntro
+    title={service.title}
+    introduction={service.introduction}
+    image={image}
+    imageAlt={service.imageAlt}
+  />
+
+  <section class="section section--paper">
+    <div class="service-content shell">
+      <nav class="service-index" aria-label={`${service.title} page sections`}>
+        <p>On this page</p>
+        <ol>
+          {
+            service.sections.map((section) => (
+              <li>
+                <a href={`#${sectionId(section.heading)}`}>{section.heading}</a>
+              </li>
+            ))
+          }
+        </ol>
+      </nav>
+
+      <div class="service-sections">
+        {
+          service.sections.map((section) => (
+            <section class="content-section" id={sectionId(section.heading)}>
+              <h2>{section.heading}</h2>
+              {section.paragraphs?.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+              {section.bullets && (
+                <ul>
+                  {section.bullets.map((bullet) => (
+                    <li>{bullet}</li>
+                  ))}
+                </ul>
+              )}
+              {section.pending && <PendingCopy>{section.pending}</PendingCopy>}
+            </section>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {
+    related.length > 0 && (
+      <section class="section">
+        <div class="shell">
+          <div class="section-heading">
+            <h2>Related piano care</h2>
+            <p>
+              Use these pages to understand the next decision, not to diagnose the piano remotely.
+            </p>
+          </div>
+          <div class="related-links">
+            {related.map((item) => (
+              <a href={item.href}>
+                <span>Explore</span>
+                <strong>{item.title}</strong>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="section section--dark">
+    <div class="closing-action shell">
+      <h2>Start with the piano in front of you.</h2>
+      <ArrowLink href={SITE.booking.internalPath} label="Book Now" />
+    </div>
+  </section>
+</BaseLayout>

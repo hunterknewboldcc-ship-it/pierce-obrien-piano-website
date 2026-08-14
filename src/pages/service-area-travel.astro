@@ -1,0 +1,69 @@
+---
+import ArrowLink from '../components/ArrowLink.astro';
+import PageIntro from '../components/PageIntro.astro';
+import PendingCopy from '../components/PendingCopy.astro';
+import { MEDIA } from '../content/media';
+import { SITE } from '../content/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Piano Service Area & Travel | Pierce O’Brien Piano"
+  description="Learn how Pierce O’Brien Piano will confirm appointment coverage and travel terms once the public service territory is approved."
+>
+  <PageIntro
+    title="Service Area & Travel"
+    introduction="Appointment coverage should be confirmed from the actual service location. This page is structured to publish a clear territory and travel policy without exposing a private residential address."
+    image={MEDIA.hero}
+    imageAlt="Pierce O’Brien working at the strings of a grand piano"
+    actionLabel="Check Booking Status"
+    actionHref="/book-contact/"
+  />
+
+  <section class="section section--paper">
+    <div class="service-content shell">
+      <div class="service-index">
+        <p>Coverage principle</p>
+        <ol>
+          <li>Use the appointment location</li>
+          <li>Keep a private address private</li>
+          <li>Confirm travel before booking</li>
+        </ol>
+      </div>
+      <div class="service-sections">
+        <section class="content-section">
+          <h2>Public service territory</h2>
+          <p>
+            The website and Google Business Profile should use the same owner-approved coverage
+            language. A broad place list will not be published until every location is genuinely
+            served and operationally accurate.
+          </p>
+          <PendingCopy>
+            Confirm the public base wording, cities or neighborhoods actually served, and how a
+            customer checks an address before booking.
+          </PendingCopy>
+        </section>
+
+        <section class="content-section">
+          <h2>Travel policy</h2>
+          <p>
+            Travel terms should be easy to understand before an appointment. The final wording will
+            state how included travel is measured and how any additional distance is calculated,
+            without publishing the service origin.
+          </p>
+          <PendingCopy>
+            Finalize the distance threshold, round-trip calculation, rate, exceptions, and the point
+            at which the customer receives confirmation.
+          </PendingCopy>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="closing-action shell">
+      <h2>Confirm coverage before the visit.</h2>
+      <ArrowLink href={SITE.booking.internalPath} label="Booking Details" />
+    </div>
+  </section>
+</BaseLayout>

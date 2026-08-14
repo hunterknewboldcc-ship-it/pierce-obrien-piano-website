@@ -1,0 +1,63 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+  src: string;
+  poster: ImageMetadata;
+  label: string;
+  caption: string;
+  compact?: boolean;
+}
+
+const { src, poster, label, caption, compact = false } = Astro.props;
+const widths = compact ? [128, 256] : [320, 540];
+const sizes = compact ? '(max-width: 720px) 12rem, 14vw' : '(max-width: 960px) 72vw, 28vw';
+---
+
+<figure class:list={['deferred-video', { 'deferred-video--compact': compact }]} data-deferred-video>
+  <div class="deferred-video__viewport">
+    <button
+      class="deferred-video__trigger"
+      type="button"
+      aria-label={`Play video: ${label}`}
+      data-deferred-video-trigger
+    >
+      <Image src={poster} alt="" widths={widths} sizes={sizes} loading="lazy" decoding="async" />
+      <span class="deferred-video__play" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="m9 6 9 6-9 6Z" fill="currentColor"></path>
+        </svg>
+      </span>
+    </button>
+
+    <video controls playsinline preload="none" hidden aria-label={label} data-deferred-video-player>
+      <source data-src={src} type="video/mp4" />
+      Your browser cannot play this video. <a href={src}>Open the MP4 file.</a>
+    </video>
+  </div>
+  <figcaption>{caption}</figcaption>
+  <noscript><a href={src}>Open video: {label}</a></noscript>
+</figure>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-deferred-video]').forEach((container) => {
+    if (container.dataset.ready === 'true') return;
+
+    const trigger = container.querySelector<HTMLButtonElement>('[data-deferred-video-trigger]');
+    const player = container.querySelector<HTMLVideoElement>('[data-deferred-video-player]');
+    const source = player?.querySelector<HTMLSourceElement>('source[data-src]');
+
+    trigger?.addEventListener('click', () => {
+      if (!player) return;
+      if (source?.dataset.src && !source.src) source.src = source.dataset.src;
+      trigger.hidden = true;
+      player.hidden = false;
+      player.load();
+      player.focus();
+      void player.play().catch(() => undefined);
+    });
+
+    container.dataset.ready = 'true';
+  });
+</script>

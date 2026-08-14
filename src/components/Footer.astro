@@ -1,0 +1,45 @@
+---
+import { SERVICES, SITE } from '../content/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <strong>{SITE.name}</strong>
+        <p>{SITE.coreMessage} Precise work, thoughtful care, and clear guidance for your piano.</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Piano services">
+        <h2>Services</h2>
+        <ul>
+          {
+            SERVICES.slice(0, 5).map((service) => (
+              <li>
+                <a href={`/${service.slug}/`}>{service.railTitle}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <nav class="footer-links" aria-label="Company information">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="/about-pierce/">About Pierce</a></li>
+          <li><a href="/service-area-travel/">Service area & travel</a></li>
+          <li><a href="/pricing-faq/">Pricing & FAQ</a></li>
+          <li><a href="/piano-care-resources/">Piano care resources</a></li>
+          <li><a href="/book-contact/">Book / contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© {year} {SITE.name}</span>
+      <span>pierceobrienpiano.com</span>
+    </div>
+  </div>
+</footer>

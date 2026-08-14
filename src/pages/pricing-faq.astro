@@ -1,0 +1,93 @@
+---
+import FaqList from '../components/FaqList.astro';
+import PageIntro from '../components/PageIntro.astro';
+import PendingCopy from '../components/PendingCopy.astro';
+import { MEDIA } from '../content/media';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    question: 'What is the difference between tuning, regulation, and voicing?',
+    answer:
+      'Tuning addresses pitch. Regulation addresses touch and mechanical response in the action. Voicing addresses tonal character. A piano may need one or more of these services, and an assessment helps separate the concerns.',
+  },
+  {
+    question: 'What is a pitch raise?',
+    answer:
+      'A pitch raise is a preliminary correction for a piano that is significantly flat. It brings overall string tension closer to the intended level before a fine tuning. The need for one is determined after assessing the piano.',
+  },
+  {
+    question: 'Do you tune pianos after a move?',
+    answer:
+      'Yes. Pierce offers tuning after moving. The right timing and whether the piano also needs a pitch raise depend on the instrument, its condition, the move, and its new environment.',
+  },
+  {
+    question: 'Which piano types are listed for service?',
+    answer:
+      'The owner questionnaire lists acoustic uprights, grand pianos, player pianos, and historic or antique instruments. Confirm the exact service scope in advance for player, historic, or antique pianos.',
+  },
+  {
+    question: 'Can I request urgent or same-day availability?',
+    answer:
+      '[COPY PENDING] The final availability language, response expectations, conditions, and any additional fee require owner approval. The website will not promise an urgent appointment time.',
+  },
+  {
+    question: 'How do travel charges work?',
+    answer:
+      '[COPY PENDING] The final travel threshold, calculation, rate, and approved service territory must be confirmed before they are published.',
+  },
+  {
+    question: 'Are repairs guaranteed?',
+    answer:
+      '[COPY PENDING] Public workmanship language needs a written scope, exclusions, parts policy, and claim process. Tuning will not be described as a permanent or guaranteed condition.',
+  },
+  {
+    question: 'How do I book?',
+    answer:
+      '[COPY PENDING] Booking will connect to the approved Gazelle destination after the link and its mobile behavior are verified.',
+  },
+];
+---
+
+<BaseLayout
+  title="Piano Service Pricing & FAQ | Pierce O’Brien Piano"
+  description="Review verified piano-service answers and the owner-confirmation status for pricing, travel, booking, and policies."
+>
+  <PageIntro
+    title="Pricing & FAQ"
+    introduction="This page will make service prices, timing, travel, payment, and policies easy to review. Those commercial terms remain intentionally unpublished until the owner confirms the complete language."
+    image={MEDIA.tuning}
+    imageAlt="Pierce O’Brien tuning a grand piano in a room lined with books"
+    actionLabel="View Booking Status"
+    actionHref="/book-contact/"
+  />
+
+  <section class="section section--paper">
+    <div class="shell">
+      <div class="section-heading">
+        <h2>Pricing without ambiguity.</h2>
+        <p>
+          Final rates will appear with scope, conditions, and related travel or parts terms—not as
+          isolated numbers.
+        </p>
+      </div>
+      <PendingCopy>
+        Confirm all active prices, appointment lengths, repair billing, cleaning packages, travel,
+        urgent-service terms, discounts, and payment methods before publishing this section.
+      </PendingCopy>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-heading">
+        <h2>Frequently asked questions.</h2>
+        <p>
+          These visible answers are intentionally conservative. No FAQ structured data is included
+          until the final copy is approved.
+        </p>
+      </div>
+      <FaqList items={faqs} />
+    </div>
+  </section>
+</BaseLayout>

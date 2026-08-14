@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Pierce O’Brien Piano — Visual Reference</title>
+    <style>
+      :root {
+        --ink: #11110f;
+        --charcoal: #1b1a18;
+        --gold: #b99a58;
+        --ivory: #f3efe6;
+        --paper: #fcfbf7;
+        --stone: #68645d;
+        --hairline: #d8d0c1;
+        --serif: Georgia, 'Times New Roman', serif;
+        --sans: Aptos, 'Segoe UI', Arial, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--ivory);
+        color: var(--ink);
+        font-family: var(--sans);
+      }
+
+      header {
+        display: flex;
+        height: 82px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 64px;
+        border-bottom: 1px solid #ffffff20;
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      .wordmark {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-family: var(--serif);
+        font-size: 21px;
+      }
+
+      .wordmark::before {
+        width: 30px;
+        height: 1px;
+        background: var(--gold);
+        content: '';
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        color: #ded9cf;
+        font-size: 14px;
+      }
+
+      .button {
+        padding: 14px 20px;
+        background: var(--gold);
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+      }
+
+      .hero {
+        display: grid;
+        min-height: 650px;
+        grid-template-columns: 56% 44%;
+        background: var(--charcoal);
+        color: var(--paper);
+      }
+
+      .copy {
+        display: grid;
+        align-content: center;
+        padding: 76px 56px 76px 64px;
+      }
+
+      h1 {
+        max-width: 720px;
+        margin: 0 0 28px;
+        font-family: var(--serif);
+        font-size: 88px;
+        font-weight: 400;
+        letter-spacing: -5px;
+        line-height: 0.98;
+      }
+
+      .copy p {
+        max-width: 560px;
+        margin: 0 0 30px;
+        color: #cec9bf;
+        font-size: 18px;
+        line-height: 1.65;
+      }
+
+      .copy .button {
+        width: fit-content;
+      }
+
+      .hero img {
+        width: 100%;
+        height: 650px;
+        object-fit: cover;
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 18%, #000 100%);
+        mask-image: linear-gradient(to right, transparent 0%, #000 18%, #000 100%);
+      }
+
+      .services {
+        padding: 84px 64px 96px;
+      }
+
+      .section-title {
+        display: grid;
+        grid-template-columns: 1fr 0.7fr;
+        gap: 80px;
+        align-items: end;
+        margin-bottom: 56px;
+      }
+
+      h2 {
+        max-width: 660px;
+        margin: 0;
+        font-family: var(--serif);
+        font-size: 58px;
+        font-weight: 400;
+        letter-spacing: -3px;
+        line-height: 1.02;
+      }
+
+      .section-title p {
+        margin: 0;
+        color: var(--stone);
+        font-size: 17px;
+        line-height: 1.6;
+      }
+
+      .row {
+        display: grid;
+        min-height: 112px;
+        grid-template-columns: 70px 0.7fr 1fr 30px;
+        gap: 28px;
+        align-items: center;
+        border-top: 1px solid var(--hairline);
+      }
+
+      .row:last-child {
+        border-bottom: 1px solid var(--hairline);
+      }
+
+      .number,
+      .arrow {
+        color: var(--gold);
+        font-family: var(--serif);
+      }
+
+      .row strong {
+        font-family: var(--serif);
+        font-size: 30px;
+        font-weight: 400;
+      }
+
+      .row p {
+        margin: 0;
+        color: var(--stone);
+        line-height: 1.5;
+      }
+
+      .palette {
+        display: flex;
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        overflow: hidden;
+        border: 1px solid #ffffff55;
+      }
+
+      .swatch {
+        width: 42px;
+        height: 42px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wordmark">Pierce O’Brien Piano</div>
+      <nav>
+        <span>Services</span>
+        <span>About Pierce</span>
+        <span>Pricing & FAQ</span>
+        <span>Resources</span>
+        <span class="button">Book Now</span>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="copy">
+          <h1>Piano tuning with a sharper ear for the details.</h1>
+          <p>
+            Performance-grade tuning, repair, and piano care. Every appointment begins with careful
+            listening and ends with clear guidance for your piano.
+          </p>
+          <span class="button">Book Now</span>
+        </div>
+        <img
+          src="../src/assets/photos/pierce-tuning-grand-hero.webp"
+          alt="Pierce O’Brien tuning a grand piano"
+        />
+      </section>
+      <section class="services">
+        <div class="section-title">
+          <h2>Care for pitch, touch, tone, and condition.</h2>
+          <p>
+            Open service rails, measured spacing, and authentic working details create a quiet,
+            direct path into the site.
+          </p>
+        </div>
+        <div class="row">
+          <span class="number">01</span><strong>Piano tuning</strong>
+          <p>Pitch-focused service with careful listening and a whole-instrument assessment.</p>
+          <span class="arrow">→</span>
+        </div>
+        <div class="row">
+          <span class="number">02</span><strong>Pitch raise</strong>
+          <p>
+            Preliminary pitch correction when an assessment shows the piano is significantly flat.
+          </p>
+          <span class="arrow">→</span>
+        </div>
+        <div class="row">
+          <span class="number">03</span><strong>Regulation & voicing</strong>
+          <p>Thoughtful work on touch, action response, and tonal character beyond pitch.</p>
+          <span class="arrow">→</span>
+        </div>
+      </section>
+    </main>
+    <div class="palette" aria-hidden="true">
+      <span class="swatch" style="background: #11110f"></span>
+      <span class="swatch" style="background: #1b1a18"></span>
+      <span class="swatch" style="background: #b99a58"></span>
+      <span class="swatch" style="background: #f3efe6"></span>
+      <span class="swatch" style="background: #fcfbf7"></span>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,115 @@
+---
+import { NAVIGATION, SITE } from '../content/site';
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+const isCurrent = (href: string) => {
+  const path = href.split('#')[0];
+  return path !== '/' && currentPath === path;
+};
+---
+
+<header class="site-header" data-site-header>
+  <div class="header-inner shell">
+    <a class="wordmark" href="/" aria-label={`${SITE.name} home`}>{SITE.name}</a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      {
+        NAVIGATION.map((item) => (
+          <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+            {item.label}
+          </a>
+        ))
+      }
+      <a class="button button--primary" href={SITE.booking.internalPath}>Book Now</a>
+    </nav>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Open navigation"
+      aria-controls="mobile-navigation"
+      aria-expanded="false"
+      data-menu-toggle
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M3 7h18M3 12h18M3 17h18"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-width="1.5"></path>
+      </svg>
+    </button>
+  </div>
+
+  <nav class="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation" hidden>
+    {
+      NAVIGATION.map((item) => (
+        <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+          {item.label}
+        </a>
+      ))
+    }
+    <a class="button button--primary" href={SITE.booking.internalPath}>Book Now</a>
+  </nav>
+</header>
+
+<script>
+  const menuButton = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const mobileNavigation = document.querySelector<HTMLElement>('#mobile-navigation');
+
+  const setMenu = (open: boolean, restoreFocus = false) => {
+    if (!menuButton || !mobileNavigation) return;
+
+    menuButton.setAttribute('aria-expanded', String(open));
+    menuButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    mobileNavigation.hidden = !open;
+    document.body.dataset.menuOpen = String(open);
+
+    if (open) {
+      mobileNavigation.querySelector<HTMLAnchorElement>('a')?.focus();
+    } else if (restoreFocus) {
+      menuButton.focus();
+    }
+  };
+
+  menuButton?.addEventListener('click', () => {
+    setMenu(menuButton.getAttribute('aria-expanded') !== 'true');
+  });
+
+  mobileNavigation?.addEventListener('click', (event) => {
+    if ((event.target as HTMLElement).closest('a')) setMenu(false);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    const menuOpen = menuButton?.getAttribute('aria-expanded') === 'true';
+
+    if (event.key === 'Escape' && menuOpen) {
+      setMenu(false, true);
+      return;
+    }
+
+    if (event.key !== 'Tab' || !menuOpen || !menuButton || !mobileNavigation) return;
+
+    const focusable = [menuButton, ...mobileNavigation.querySelectorAll<HTMLAnchorElement>('a')];
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+
+  window.matchMedia('(min-width: 961px)').addEventListener('change', (event) => {
+    if (event.matches) setMenu(false);
+  });
+</script>

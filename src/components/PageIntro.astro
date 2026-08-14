@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  title: string;
+  introduction: string;
+  image: ImageMetadata;
+  imageAlt: string;
+  imagePosition?: string;
+  actionLabel?: string;
+  actionHref?: string;
+}
+
+const {
+  title,
+  introduction,
+  image,
+  imageAlt,
+  imagePosition = 'center',
+  actionLabel = 'Book Now',
+  actionHref = '/book-contact/',
+} = Astro.props;
+---
+
+<section class="page-intro">
+  <div class="page-intro-grid shell">
+    <div class="page-intro-copy" data-reveal>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <span aria-current="page">{title}</span>
+      </nav>
+      <h1>{title}</h1>
+      <p>{introduction}</p>
+      <a class="button button--primary" href={actionHref}>{actionLabel}</a>
+    </div>
+    <div
+      class="page-intro-media"
+      style={`--page-intro-position: ${imagePosition}`}
+      data-reveal
+      data-reveal-delay="1"
+    >
+      <Image
+        src={image}
+        alt={imageAlt}
+        widths={[480, 720, 960]}
+        sizes="(max-width: 960px) 100vw, 38vw"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </div>
+  </div>
+</section>

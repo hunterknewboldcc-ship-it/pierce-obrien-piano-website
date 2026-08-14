@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets';
+
+import { MEDIA, VIDEOS } from '../content/media';
+import DeferredVideo from './DeferredVideo.astro';
+---
+
+<section class="section section--paper" id="piano-in-motion">
+  <div class="shell">
+    <div class="section-heading">
+      <h2>Piano care in motion.</h2>
+      <p>
+        Owner-supplied photographs and short clips place the instrument—and the work around it—at
+        the center of the page.
+      </p>
+    </div>
+
+    <div class="media-showcase-grid">
+      <DeferredVideo
+        src={VIDEOS.service}
+        poster={MEDIA.serviceVideoPoster}
+        label="Pierce O’Brien at a grand piano"
+        caption="At the grand piano. The full video loads only when you choose to play it."
+      />
+
+      <div class="media-showcase-side">
+        <figure class="media-still media-still--landscape">
+          <div class="media-still__frame">
+            <Image
+              src={MEDIA.ownerLandscape}
+              alt="Pierce O’Brien behind an open grand piano in a blue-lit studio"
+              widths={[480, 800, 1200, 1800]}
+              sizes="(max-width: 960px) 100vw, 50vw"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption>At the instrument.</figcaption>
+        </figure>
+
+        <figure class="media-still">
+          <div class="media-still__frame">
+            <Image
+              src={MEDIA.tuningFestival}
+              alt="Pierce O’Brien tuning an open grand piano at a festival event"
+              widths={[360, 640, 960, 1280]}
+              sizes="(max-width: 720px) 74vw, 36vw"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption>Tuning in progress.</figcaption>
+        </figure>
+
+        <DeferredVideo
+          src={VIDEOS.venue}
+          poster={MEDIA.venueVideoPoster}
+          label="A short view of a piano venue"
+          caption="A brief venue clip."
+          compact
+        />
+      </div>
+    </div>
+  </div>
+</section>

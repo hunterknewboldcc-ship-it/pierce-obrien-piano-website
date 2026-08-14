@@ -1,0 +1,99 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileAction from '../components/MobileAction.astro';
+import { MEDIA } from '../content/media';
+import { SITE } from '../content/site';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+  includeOrganization?: boolean;
+  schema?: Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  noindex = !SITE.launchReady,
+  includeOrganization = false,
+  schema = [],
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, SITE.domain).href;
+const socialImage = new URL(MEDIA.hero.src, SITE.domain).href;
+const currentPath = Astro.url.pathname;
+
+const webPageSchema = {
+  '@type': 'WebPage',
+  '@id': `${canonical}#webpage`,
+  url: canonical,
+  name: title,
+  description,
+  isPartOf: { '@id': `${SITE.domain}/#website` },
+};
+
+const identitySchema = includeOrganization
+  ? [
+      {
+        '@type': 'Organization',
+        '@id': `${SITE.domain}/#organization`,
+        name: SITE.name,
+        url: `${SITE.domain}/`,
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${SITE.domain}/#website`,
+        url: `${SITE.domain}/`,
+        name: SITE.name,
+        publisher: { '@id': `${SITE.domain}/#organization` },
+        inLanguage: SITE.locale,
+      },
+    ]
+  : [];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [...identitySchema, webPageSchema, ...schema],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#1b1a18" />
+    <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={canonical} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content="Pierce O’Brien tuning a grand piano" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+
+    <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} is:inline />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <Header currentPath={currentPath} />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+    <MobileAction />
+  </body>
+</html>
