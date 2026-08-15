@@ -141,8 +141,12 @@ export const SERVICES: Service[] = [
       },
       {
         heading: 'Price, scope, and care interval',
+        paragraphs: [
+          'Pierce recommends a regular schedule of two or three tunings each year. A piano that is cared for on a regular schedule is more likely to stay closer to pitch than one left untuned for long periods.',
+          'Playing time, humidity, and temperature changes can all affect pitch. Even a piano that is not being played can gradually move away from tune as its strings and structure respond to changing conditions.',
+        ],
         pending:
-          'Final public price, appointment scope, expected duration, and tuning-frequency guidance are awaiting owner approval.',
+          'The final public price, appointment scope, and expected duration are still awaiting owner approval.',
       },
     ],
     related: ['pitch-raise', 'regulation-voicing', 'tuning-after-moving'],
@@ -311,8 +315,12 @@ export const SERVICES: Service[] = [
       },
       {
         heading: 'Packages, cadence, and pricing',
+        paragraphs: [
+          'For a deeper interior clean, the action may be removed so dust and debris can be carefully vacuumed from inside the piano. Compressed air may be used in a minimally invasive way to help clear remaining debris.',
+          'Exterior cleaning and dusting are part of piano care as well. Depending on the instrument and the agreed scope, this may be followed by polishing or a hand rub.',
+        ],
         pending:
-          'Final package names, approved scope, cadence guidance, prices, and bundle terms are awaiting confirmation.',
+          'Final package names, cadence guidance, prices, and bundle terms are awaiting confirmation.',
       },
     ],
     related: ['piano-tuning', 'piano-repairs'],

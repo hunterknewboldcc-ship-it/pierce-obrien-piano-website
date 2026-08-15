@@ -1,33 +1,63 @@
 ---
+import ArrowLink from '../components/ArrowLink.astro';
 import PageIntro from '../components/PageIntro.astro';
-import PendingCopy from '../components/PendingCopy.astro';
 import { MEDIA } from '../content/media';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const resources = [
   {
     title: 'How often should a piano be tuned?',
-    description: 'A direct guide that will distinguish general care from piano-specific advice.',
+    paragraphs: [
+      'A regular schedule of two or three tunings each year is a practical starting point for keeping a piano closer to pitch. A piano that receives regular care is generally less likely to drift far from tune than one left untuned for long stretches.',
+      'Playing time, humidity, and temperature all influence pitch. The right cadence for a particular piano still depends on its condition, use, and environment.',
+    ],
+    href: '/piano-tuning/',
+    linkLabel: 'Explore Piano Tuning',
   },
   {
     title: 'Utah’s dry climate and your piano',
-    description: 'Humidity, seasonal change, stability, and practical care habits.',
+    paragraphs: [
+      'Dry conditions and seasonal temperature changes can affect a piano’s pitch and stability. String tension, wood, and felt all respond to the environment around the instrument.',
+      'A steady room and regular attention make it easier to notice changes before they become a larger concern. An in-person assessment is the right place to decide what your piano needs.',
+    ],
+    href: '/piano-tuning/',
+    linkLabel: 'Understand Piano Tuning',
   },
   {
     title: 'Tuning vs. regulation vs. voicing',
-    description: 'The difference between pitch, touch, response, and tonal character.',
+    paragraphs: [
+      'Tuning adjusts pitch. Regulation addresses the consistency and response of the action. Voicing shapes tonal character through careful work on the hammers.',
+      'A sticky key, an uneven hammer response, or an unwanted ringing sound may point beyond tuning. The useful next step is an assessment that separates pitch, touch, and tone concerns.',
+    ],
+    href: '/regulation-voicing/',
+    linkLabel: 'Explore Regulation & Voicing',
   },
   {
     title: 'What to know after moving a piano',
-    description: 'The history and environmental details worth sharing before an assessment.',
+    paragraphs: [
+      'A move changes a piano’s environment and can affect pitch, stability, and mechanical response. There is no universal waiting period that fits every instrument or move.',
+      'When arranging an assessment, share when the piano was moved, what you notice, and what has changed in the new room. That context helps begin with the right questions.',
+    ],
+    href: '/tuning-after-moving/',
+    linkLabel: 'Plan Post-Move Care',
   },
   {
     title: 'Light cleaning vs. deep cleaning',
-    description: 'A condition-aware explanation of the two planned cleaning scopes.',
+    paragraphs: [
+      'Light cleaning addresses accessible exterior and interior areas. A deeper cleaning can involve removing the action, vacuuming interior dust and debris, and using compressed air with care.',
+      'Cleaning is more than cosmetic: old dust and debris can collect around the moving parts of the instrument. The right scope depends on the piano’s construction and condition.',
+    ],
+    href: '/piano-cleaning/',
+    linkLabel: 'Explore Piano Cleaning',
   },
   {
     title: 'Before you buy a used piano',
-    description: 'Questions a technician can help you ask before committing to an instrument.',
+    paragraphs: [
+      'A used piano can look promising while still needing a closer look at its tuning pins, action, strings, and overall condition. A technician’s perspective helps turn an uncertain purchase into a better-informed decision.',
+      'An inspection is an observation of the instrument in front of you, not a promise about future value or condition. It is a chance to understand the questions that matter before you commit.',
+    ],
+    href: '/pre-purchase-inspection/',
+    linkLabel: 'Explore Pre-Purchase Inspections',
   },
 ];
 ---
@@ -50,8 +80,8 @@ const resources = [
       <div class="section-heading">
         <h2>Guides built around real questions.</h2>
         <p>
-          Each finished guide will answer its title early, link to the relevant service, and give
-          the owner a practical next step.
+          Each guide answers a practical owner question, connects to the relevant service, and keeps
+          general guidance separate from an in-person diagnosis.
         </p>
       </div>
       <div class="resource-rail">
@@ -59,10 +89,10 @@ const resources = [
           resources.map((resource) => (
             <article class="resource-item">
               <h3>{resource.title}</h3>
-              <p>{resource.description}</p>
-              <PendingCopy>
-                Technically reviewed guide copy and final internal links are pending.
-              </PendingCopy>
+              {resource.paragraphs.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+              <ArrowLink href={resource.href} label={resource.linkLabel} />
             </article>
           ))
         }
@@ -74,9 +104,9 @@ const resources = [
     <div class="shell reading-width">
       <h2>Editorial standard</h2>
       <p>
-        Resource copy should be reviewed for technical accuracy, separate general guidance from an
-        in-person diagnosis, and avoid using repeated city names as a substitute for useful local
-        context.
+        These guides provide general piano-care context, not a remote diagnosis. The condition of a
+        specific instrument should be assessed in person, and the writing avoids repeated city names
+        as a substitute for useful local context.
       </p>
     </div>
   </section>
