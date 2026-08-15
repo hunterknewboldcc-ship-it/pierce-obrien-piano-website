@@ -275,8 +275,11 @@ export const SERVICES: Service[] = [
       },
       {
         heading: 'Scope and pricing',
-        pending:
-          'Instrument eligibility, assessment scope, pricing, and expected time must be approved before publication.',
+        paragraphs: [
+          'Regulation and voicing are separate services. All pianos can be candidates for either one, with the scope determined after assessment and a discussion of needs.',
+          'For regulation, a touch-up may take a few hours; more extensive work may involve taking the action to Pierce’s workshop and returning it in a day or two rather than spending full days in the home. Regulation is quoted by the hour after assessment. A touch-up regulation can be $200, and a full regulation can be up to $1,000.',
+          'Voicing typically begins with reshaping the hammers. The client is involved in tonal decisions: Pierce begins with one note, brings it to the desired feel and sound, then models that result across the remaining hammers. Major voicing adjustments include a free follow-up appointment after two to three weeks of playing to even out the voicing.',
+        ],
       },
     ],
     related: ['piano-tuning', 'piano-repairs'],
@@ -341,8 +344,11 @@ export const SERVICES: Service[] = [
       },
       {
         heading: 'Deliverable and price',
-        pending:
-          'The final inspection checklist, written or verbal deliverable, geographic limits, and price need owner approval.',
+        paragraphs: [
+          'A pre-purchase inspection considers a comprehensive set of factors, including whether the tuning pins will hold and the condition of the action and strings. The assessment remains exploratory rather than limited to a finite checklist.',
+          'When Pierce attends the buyer’s play-test, the assessment is normally delivered verbally. When he visits a piano alone, he provides a written summary of the assessment.',
+          'Pre-purchase inspections use the same service area and travel-fee structure as regular appointments. An inspection takes up to one hour and costs $100 plus travel.',
+        ],
       },
     ],
     related: ['piano-repairs', 'piano-tuning'],
