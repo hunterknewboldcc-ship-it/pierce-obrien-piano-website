@@ -24,7 +24,7 @@ export const SITE = {
     travelPolicy: null,
   },
   credentials: {
-    publicRPTWording: null,
+    publicRPTWording: 'RPT',
     publicPTGWording: null,
     apprenticeshipWording: null,
   },
@@ -66,7 +66,7 @@ export const pendingFacts = [
   {
     group: 'Credentials and proof',
     items: [
-      'Exact public RPT and PTG credential wording',
+      'Exact public PTG credential wording beyond the approved RPT designation',
       'Permission and wording for the Don Tuttle apprenticeship attribution',
       'Approved experience and piano-service counts',
       'Permissioned reviews, named clients, and testimonial excerpts',

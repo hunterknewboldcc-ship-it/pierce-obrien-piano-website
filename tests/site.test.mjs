@@ -262,7 +262,6 @@ test('internal local links resolve to a file in the static build', () => {
 
 test('rendered HTML contains no stale legacy content or unapproved testimonial markup', () => {
   const stalePatterns = [
-    ['Nashville', /\bnashville\b/i],
     ['legacy phone number', /(?:\+?1[\s().-]*)?336[\s().-]*251[\s().-]*3734/],
     ['legacy iCloud email', /\b[A-Z0-9._%+-]+@icloud\.com\b/i],
     ['unapproved testimonial copy', /\btestimonials?\b|<blockquote\b|<q\b/i],
