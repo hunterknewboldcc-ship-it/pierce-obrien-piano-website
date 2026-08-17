@@ -1,7 +1,6 @@
 ---
 import FaqList from '../components/FaqList.astro';
 import PageIntro from '../components/PageIntro.astro';
-import PendingCopy from '../components/PendingCopy.astro';
 import { MEDIA } from '../content/media';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
@@ -49,33 +48,17 @@ const faqs = [
 ---
 
 <BaseLayout
-  title="Piano Service Pricing & FAQ | Pierce O’Brien Piano"
-  description="Review verified piano-service answers and the owner-confirmation status for pricing, travel, booking, and policies."
+  title="Piano Service FAQ | Pierce O’Brien Piano"
+  description="Review verified piano-service answers about care, travel, booking, and policies."
 >
   <PageIntro
-    title="Pricing & FAQ"
-    introduction="This page will make service prices, timing, travel, payment, and policies easy to review. Those commercial terms remain intentionally unpublished until the owner confirms the complete language."
+    title="Piano Service FAQ"
+    introduction="Find clear answers about piano care, travel, booking, and policies. Pricing is confirmed with the scope of each service."
     image={MEDIA.tuning}
     imageAlt="Pierce O’Brien tuning a grand piano in a room lined with books"
     actionLabel="View Booking Status"
     actionHref="/book-contact/"
   />
-
-  <section class="section section--paper">
-    <div class="shell">
-      <div class="section-heading">
-        <h2>Pricing without ambiguity.</h2>
-        <p>
-          Final rates will appear with scope, conditions, and related travel or parts terms—not as
-          isolated numbers.
-        </p>
-      </div>
-      <PendingCopy>
-        Confirm all active prices, appointment lengths, repair billing, cleaning packages, travel,
-        urgent-service terms, discounts, and payment methods before publishing this section.
-      </PendingCopy>
-    </div>
-  </section>
 
   <section class="section">
     <div class="shell">

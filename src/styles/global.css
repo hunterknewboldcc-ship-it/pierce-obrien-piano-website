@@ -208,7 +208,7 @@ ol:last-child {
   min-height: var(--header-height);
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
+  gap: clamp(1rem, 2vw, 1.5rem);
 }
 
 .wordmark {
@@ -233,13 +233,13 @@ ol:last-child {
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: clamp(1.2rem, 2.4vw, 2.25rem);
+  gap: clamp(0.7rem, 1.5vw, 1.35rem);
 }
 
 .desktop-nav a:not(.button) {
   color: #ded9cf;
-  font-size: 0.88rem;
-  letter-spacing: 0.055em;
+  font-size: 0.82rem;
+  letter-spacing: 0.045em;
   text-decoration: none;
 }
 
@@ -1189,7 +1189,7 @@ ol:last-child {
   display: none;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1100px) {
   .site-header {
     backdrop-filter: none;
   }

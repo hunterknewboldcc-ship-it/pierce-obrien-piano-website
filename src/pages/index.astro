@@ -37,10 +37,7 @@ const faqs = [
     <div class="hero-grid shell">
       <div class="hero-copy">
         <h1>{SITE.coreMessage}</h1>
-        <p>
-          Guild-certified piano care from Pierce O’Brien, RPT. Every appointment begins with a
-          careful assessment, tuning by ear, and clear next steps for your piano.
-        </p>
+        <p>Performance level tuning, repair, and refinement.</p>
         <div class="hero-actions">
           <a class="button button--primary" href={SITE.booking.internalPath}>Book Now</a>
           <a class="button button--outline" href="#services">Explore Services</a>
@@ -171,11 +168,11 @@ const faqs = [
     </div>
   </section>
 
-  <section class="section section--paper">
+  <section class="section section--paper" id="faq">
     <div class="shell">
       <div class="section-heading">
         <h2>Useful answers before you book.</h2>
-        <p>Only verified service facts appear here. Pricing and contact details remain gated.</p>
+        <p>Clear answers to the service questions that matter before you book.</p>
       </div>
       <FaqList items={faqs} />
     </div>

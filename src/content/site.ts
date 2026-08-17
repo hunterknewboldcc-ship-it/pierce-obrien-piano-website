@@ -4,7 +4,7 @@ export const SITE = {
   domain: 'https://www.pierceobrienpiano.com',
   locale: 'en-US',
   launchReady: import.meta.env.PUBLIC_LAUNCH_READY === 'true',
-  coreMessage: 'Piano tuning with a sharper ear for the details.',
+  coreMessage: 'A refined ear for unmatched beauty.',
   defaultDescription:
     'Performance-minded piano tuning, repair, and thoughtful piano care from Pierce O’Brien Piano.',
   booking: {
@@ -85,9 +85,10 @@ export const pendingFacts = [
 ] as const;
 
 export const NAVIGATION = [
-  { label: 'Services', href: '/#services' },
+  { label: 'Tuning', href: '/piano-tuning/' },
   { label: 'About Pierce', href: '/about-pierce/' },
-  { label: 'Pricing & FAQ', href: '/pricing-faq/' },
+  { label: 'Other services', href: '/#services' },
+  { label: 'FAQ', href: '/#faq' },
   { label: 'Resources', href: '/piano-care-resources/' },
 ] as const;
 
