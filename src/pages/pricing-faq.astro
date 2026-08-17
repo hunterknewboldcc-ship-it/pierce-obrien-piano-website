@@ -2,6 +2,7 @@
 import FaqList from '../components/FaqList.astro';
 import PageIntro from '../components/PageIntro.astro';
 import { MEDIA } from '../content/media';
+import { SITE } from '../content/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const faqs = [
@@ -21,18 +22,17 @@ const faqs = [
       'Yes. Pierce offers tuning after moving. The right timing and whether the piano also needs a pitch raise depend on the instrument, its condition, the move, and its new environment.',
   },
   {
-    question: 'Which piano types are listed for service?',
-    answer:
-      'The owner questionnaire lists acoustic uprights, grand pianos, player pianos, and historic or antique instruments. Confirm the exact service scope in advance for player, historic, or antique pianos.',
+    question: 'What types of pianos does Pierce service?',
+    answer: `Pierce services ${SITE.serviceScope.instruments.toLowerCase()}. The useful first step is still to share the piano type and the service you need when booking.`,
   },
   {
     question: 'What is the same-day cancellation or rescheduling policy?',
-    answer: 'Same-day cancellations carry a $100 fee. Same-day rescheduling carries a $50 fee.',
+    answer: `A same-day cancellation is ${SITE.appointmentPolicies.sameDayCancellation}. A same-day reschedule is ${SITE.appointmentPolicies.sameDayReschedule}. Please update the appointment as early as possible when plans change.`,
   },
   {
     question: 'How do travel charges work?',
     answer:
-      'Travel fees are quoted for the appointment location. If you would like an estimate, request it before booking; the appropriate travel fee is confirmed by phone or text before booking.',
+      'Travel is included within 20 miles of Pierce’s service base. Beyond that area, travel is billed at $0.65 per mile round trip. Ask before booking if you would like the appropriate travel fee quoted for your appointment location.',
   },
   {
     question: 'What happens at the first appointment?',
@@ -43,6 +43,30 @@ const faqs = [
     question: 'How does Pierce approach tuning?',
     answer:
       'Pierce tunes by ear and listens beyond pitch alone. Each piano is approached as an individual instrument, with attention to touch, tone, condition, and the musical character the owner wants to bring forward.',
+  },
+  {
+    question: 'How much is a standard tuning?',
+    answer:
+      'A fine tuning is $225 and typically takes about two hours. It includes an assessment, fine tuning, light dusting, and an exterior wipe-down. A piano that is significantly below pitch may need a pitch raise in addition to the standard tuning.',
+  },
+  {
+    question: 'How often should a piano be tuned?',
+    answer:
+      'Pierce recommends two to four tunings each year. The right schedule depends on the piano’s use, condition, and environment, including changes in humidity and temperature.',
+  },
+  {
+    question: 'Are repairs guaranteed?',
+    answer:
+      'Yes. Repairs are guaranteed. If a repaired item fails, Pierce will return in most cases to address it at no additional charge. Tuning is different: every piano gradually moves out of tune over time and needs ongoing care.',
+  },
+  {
+    question: 'What does a pre-purchase inspection cost?',
+    answer:
+      'A pre-purchase inspection costs $100 plus travel and takes up to one hour. If Pierce attends the buyer’s play-test, the assessment is normally delivered verbally; a solo inspection includes a written summary.',
+  },
+  {
+    question: 'Which payment methods are accepted?',
+    answer: `Pierce accepts ${SITE.appointmentPolicies.payments.toLowerCase()} payments.`,
   },
   {
     question: 'How do I book?',
@@ -57,7 +81,7 @@ const faqs = [
 >
   <PageIntro
     title="Piano Care FAQ"
-    introduction="Find practical answers about piano care before booking. Service pricing is discussed within the relevant service page and confirmed from the piano’s assessed needs."
+    introduction="Find practical answers about piano care, pricing, travel, and booking. The piano’s condition still guides the final service conversation."
     image={MEDIA.tuning}
     imageAlt="Pierce O’Brien tuning a grand piano in a room lined with books"
     actionLabel="Explore Services"

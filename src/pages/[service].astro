@@ -3,7 +3,6 @@ import type { GetStaticPaths } from 'astro';
 
 import ArrowLink from '../components/ArrowLink.astro';
 import PageIntro from '../components/PageIntro.astro';
-import PendingCopy from '../components/PendingCopy.astro';
 import { MEDIA } from '../content/media';
 import { SERVICES, SERVICE_BY_SLUG, SITE, type Service } from '../content/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -93,7 +92,6 @@ const serviceSchema = {
                   ))}
                 </ul>
               )}
-              {section.pending && <PendingCopy>{section.pending}</PendingCopy>}
             </section>
           ))
         }

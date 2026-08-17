@@ -1,7 +1,6 @@
 ---
 import ArrowLink from '../components/ArrowLink.astro';
 import PageIntro from '../components/PageIntro.astro';
-import PendingCopy from '../components/PendingCopy.astro';
 import { MEDIA } from '../content/media';
 import { SITE } from '../content/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -9,11 +8,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="Piano Service Area & Travel | Pierce O’Brien Piano"
-  description="Learn how Pierce O’Brien Piano will confirm appointment coverage and travel terms once the public service territory is approved."
+  description="Learn where Pierce O’Brien Piano provides service and how travel charges are calculated for Salt Lake City appointments."
 >
   <PageIntro
     title="Service Area & Travel"
-    introduction="Appointment coverage should be confirmed from the actual service location. This page is structured to publish a clear territory and travel policy without exposing a private residential address."
+    introduction="Pierce is based in Sandy / Cottonwood Heights and currently serves Salt Lake City. Travel is included within 20 miles of the service base."
     image={MEDIA.hero}
     imageAlt="Pierce O’Brien working at the strings of a grand piano"
     actionLabel="Book Now"
@@ -34,28 +33,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <section class="content-section">
           <h2>Public service territory</h2>
           <p>
-            The website and Google Business Profile should use the same owner-approved coverage
-            language. A broad place list will not be published until every location is genuinely
-            served and operationally accurate.
+            Pierce is based in Sandy / Cottonwood Heights and serves Salt Lake City. This is a
+            service business, so the residential service origin remains private.
           </p>
-          <PendingCopy>
-            Confirm the public base wording, cities or neighborhoods actually served, and how a
-            customer checks an address before booking.
-          </PendingCopy>
         </section>
 
         <section class="content-section">
           <h2>Travel policy</h2>
           <p>
-            Travel terms should be easy to understand before an appointment. The final wording will
-            state how included travel is measured and how any additional distance is calculated,
-            without publishing the service origin.
+            Travel is included within 20 miles of Pierce’s service base. Beyond that included area,
+            travel is billed at $0.65 per mile round trip. If you are concerned about travel, ask
+            about the fee before booking and Pierce will quote the appropriate amount.
           </p>
-          <PendingCopy>
-            Travel fees are quoted for the appointment location and confirmed by phone or text
-            before booking. The distance threshold, calculation, rate, and any exceptions are not
-            yet published.
-          </PendingCopy>
         </section>
       </div>
     </div>

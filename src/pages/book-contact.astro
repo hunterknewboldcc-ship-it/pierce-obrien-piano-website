@@ -1,7 +1,6 @@
 ---
 import ArrowLink from '../components/ArrowLink.astro';
 import PageIntro from '../components/PageIntro.astro';
-import PendingCopy from '../components/PendingCopy.astro';
 import { MEDIA } from '../content/media';
 import { SITE } from '../content/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -25,7 +24,7 @@ const intakeItems = [
 >
   <PageIntro
     title="Book / Contact"
-    introduction="Book Now opens Pierce’s Gazelle scheduling page. Contact details and quote-routing workflow will be added once those public details are approved."
+    introduction="Book Now opens Pierce’s Gazelle scheduling page. Share the details of the piano and the service you need so the appointment can begin with useful context."
     image={MEDIA.hero}
     imageAlt="Pierce O’Brien working at a grand piano"
     actionLabel="Book Now"
@@ -38,10 +37,10 @@ const intakeItems = [
         <h2>One clear path to the calendar.</h2>
         <p>Book Now opens Pierce’s Gazelle scheduling page.</p>
       </div>
-      <PendingCopy>
-        Add the approved text and quote destinations, define a fallback path, and publish the
-        related privacy and contact details. No information is collected by this preview.
-      </PendingCopy>
+      <p class="reading-width">
+        The online schedule is the current way to begin a piano-service request. For travel-fee
+        questions, ask before booking so Pierce can quote the appropriate amount.
+      </p>
     </div>
   </section>
 

@@ -42,6 +42,10 @@ const identitySchema = includeOrganization
         '@id': `${SITE.domain}/#organization`,
         name: SITE.name,
         url: `${SITE.domain}/`,
+        areaServed: {
+          '@type': 'City',
+          name: 'Salt Lake City',
+        },
       },
       {
         '@type': 'WebSite',

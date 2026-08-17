@@ -200,7 +200,10 @@ test('the homepage presents the approved navigation, hero copy, and six service 
     'Homepage should not present a combined Pricing & FAQ tab.',
   );
   assert.match(text, /A refined ear for unmatched beauty\./);
-  assert.match(text, /Performance-level tuning, repair, and refinement\./);
+  assert.match(
+    text,
+    /Performance-level tuning, repair, and refinement for Salt Lake City pianos\./,
+  );
   assert.doesNotMatch(text, /A clear path through the appointment\./);
   assert.doesNotMatch(text, /Piano care in motion\./);
   assert.doesNotMatch(text, /Useful answers before you book\./);
@@ -367,6 +370,36 @@ test('rendered HTML contains no stale legacy content or unapproved testimonial m
   }
 
   assert.deepEqual(failures, [], failures.join('\n'));
+});
+
+test('questionnaire-backed pricing, credentials, and travel details render without unfinished copy', () => {
+  const renderedHtml = allBuiltHtml()
+    .map((page) => page.html)
+    .join('\n');
+  const text = normaliseText(renderedHtml);
+
+  for (const expected of [
+    'A fine tuning is $225',
+    '$75–$150 additional',
+    '$120 per hour, billed in 15-minute increments',
+    'Light cleaning is $75',
+    'Deep cleaning is $200',
+    'Travel is included within 20 miles',
+    '$0.65 per mile round trip',
+    'Registered Piano Technician (RPT)',
+    'Piano Technicians Guild (PTG)',
+    'acoustic upright, grand, player, historic, and antique pianos',
+    'cash, check, bank transfer, and digital wallet',
+    'A same-day cancellation is $100',
+  ]) {
+    assert.ok(text.includes(expected), `Missing questionnaire-backed public detail: ${expected}`);
+  }
+
+  assert.doesNotMatch(
+    text,
+    /\[copy pending\]/i,
+    'Public pages must not expose unfinished-copy markers.',
+  );
 });
 
 test('every rendered image has descriptive alt text and explicit dimensions', () => {

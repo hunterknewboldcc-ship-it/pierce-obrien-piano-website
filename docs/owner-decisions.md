@@ -10,41 +10,41 @@ This is the launch decision log for the new website. It is grounded in:
 - `piano-tuner-seo-package/04-copywriter-brief.md`
 - `piano-tuner-seo-package/05-one-shot-codex-build-prompt.md`
 
-The questionnaire is owner-reported. Until Pierce confirms an item below and supplies any needed source or destination, it must not appear as a public business claim, structured-data value, booking promise, or automated form behavior. Use `[CONFIRM]` / `[COPY PENDING]` in the interim rather than guessing.
+The questionnaire is owner-reported. The owner has instructed the website to use the answered 2026-08-14 CSV facts as the public source for the confirmed items marked below. Any remaining unchecked item must not appear as a public business claim, structured-data value, booking promise, or automated form behavior. Use `[CONFIRM]` / `[COPY PENDING]` in the interim rather than guessing.
 
 The planned canonical domain is `https://www.pierceobrienpiano.com`. The site is designed as a service-area business; do not publish a residential or private address merely to target local search.
 
 ## Launch blockers — identity, contact, and geography
 
-- [ ] **Public business identity:** Confirm the exact public business name, whether it differs from the legal name, and the preferred owner byline (`Pierce O’Brien`, `Pierce O’Brien, RPT`, or other approved wording).
+- [x] **Public business identity:** The public business name is Pierce O’Brien Piano. The site uses Pierce O’Brien and Registered Piano Technician (RPT) in the owner byline.
 - [ ] **Phone and text path:** Supply the public phone number, confirm whether it accepts texts, define the expected response workflow, and approve the exact CTA labels. Do not render “Text Pierce” until this is complete.
 - [ ] **Email and fallback contact:** Supply a public business email, who monitors it, and the response expectation for form or email inquiries.
 - [ ] **Hours and availability:** Confirm published business hours, closed days, and how urgent or same-day requests are handled. The site may say “Ask about urgent or same-day availability” only after the workflow is approved; it must never promise availability.
-- [ ] **Service territory:** Approve the actual cities/counties served. The questionnaire identifies Sandy / Cottonwood Heights as the base and Salt Lake City as an explicitly stated service city; it does not substantiate a statewide or broad countywide claim.
+- [x] **Service territory:** The public wording is limited to a Sandy / Cottonwood Heights base and Salt Lake City service. It does not support a statewide or broad countywide claim.
 - [ ] **Address policy:** Decide whether Google and the site use a hidden-address service-area profile or a public commercial address. Confirm that any address displayed is appropriate for customers to visit.
-- [ ] **Travel policy:** Confirm the free-travel boundary, whether the questionnaire-reported radius is current, its calculation origin, the current mileage rule, exceptions, and how the customer sees or accepts a travel charge. Keep the private travel-origin address in the questionnaire only unless Pierce explicitly authorizes a public address.
+- [x] **Travel policy:** Travel is included within 20 miles of the private service base, then billed at $0.65 per mile round trip. The public site must not disclose the private origin or invent exceptions.
 
 ## Launch blockers — services, pricing, and policies
 
-- [ ] **Active service list:** Confirm which services are currently offered and should receive public pages: standard tuning, pitch raise, tuning after moving, repairs, regulation, voicing, cleaning, pre-purchase inspection / consulting, and any urgent service.
-- [ ] **Instrument scope:** Confirm which instrument types are accepted for each applicable service: upright, grand, player, historic / antique, or other. Working on an historic instrument is not the same claim as specialized restoration or conservation expertise.
-- [ ] **Standard tuning:** Reconfirm the active price (questionnaire: $225), exact included assessment / tuning / cleaning scope, exclusions, typical duration, and the approved language explaining that tuning is not permanent.
-- [ ] **Pitch raise:** Confirm the active range (questionnaire: $75–$150), when it may be required, whether it includes or is followed by fine tuning, and the exact intake / assessment path. Do not offer remote diagnosis.
-- [ ] **Repairs:** Confirm the active hourly rate and billing increment (questionnaire: $120 per hour in 15-minute increments), diagnostic policy, parts policy, common repair scope, estimate authorization, and any minimum charge.
-- [ ] **Regulation and voicing:** Confirm these are active public services, their practical scope, and whether all instrument types are eligible.
-- [ ] **Cleaning:** Confirm whether both packages are active (questionnaire: $75 light cleaning and $200 deep cleaning), their included work, suitability limits, scheduling expectations, and bundle eligibility.
-- [ ] **Pre-purchase inspection / consulting:** Define the inspection scope, deliverable, limitation of responsibility, pricing, timing, and whether this service is offered remotely, on site, or both.
+- [x] **Active service list:** Standard tuning, pitch raise, tuning after moving, repairs, regulation, voicing, cleaning, and pre-purchase inspection / consulting are published.
+- [x] **Instrument scope:** The published scope is acoustic upright, grand, player, historic, and antique pianos. This is not a claim of specialist restoration or conservation expertise.
+- [x] **Standard tuning:** The published rate is $225; it typically takes about two hours and includes assessment, fine tuning, light dusting, and exterior wipe-down. Ongoing tuning is explained as normal piano care.
+- [x] **Pitch raise:** The published additional range is $75–$150; the need is determined after an in-person assessment. A pitch-raise appointment typically takes about three hours.
+- [x] **Repairs:** The published rate is $120 per hour in 15-minute increments. The site does not claim a parts, diagnostic, authorization, or minimum-charge policy that is not supplied.
+- [x] **Regulation and voicing:** Both are active public services. All pianos are described as candidates, subject to assessment and hammer condition.
+- [x] **Cleaning:** Light cleaning is $75 and recommended yearly; deep cleaning is $200 and recommended every three to five years. The site lists the owner-supplied service scope without adding bundle terms.
+- [x] **Pre-purchase inspection / consulting:** A pre-purchase inspection is $100 plus travel and up to one hour; it includes owner-supplied observations and verbal or written delivery depending on attendance.
 - [ ] **Urgent / after-hours work:** Confirm whether an after-hours service exists, what “last minute” means, when the stated $50 fee applies, and who approves exceptions.
-- [ ] **Payment:** Confirm accepted payment methods and any deposit, cancellation, rescheduling, or returned-payment policy.
+- [x] **Payment and scheduling policy:** The published payment methods are cash, check, bank transfer, and digital wallet. The published same-day cancellation fee is $100 and the same-day rescheduling fee is $50. Deposits and returned-payment policy remain unlisted.
 - [ ] **Offers:** Confirm whether the $50 first-appointment promotion, $15 veteran discount, and $50 multi-service discount are active, stackable, time-limited, and legally / operationally ready. Omit them until final.
 - [ ] **Machine-aided tuning:** Decide whether the proposed lower-priced machine-aided service will exist. It is an idea in the questionnaire, not an approved offering, and must not be published until its scope and price are final.
-- [ ] **Repair workmanship policy:** Supply the written guarantee: covered work, duration, exclusions, return-visit terms, parts treatment, and approval wording. The questionnaire supports a repair-workmanship concept, not an unconditional guarantee.
+- [x] **Repair workmanship policy:** The site states the owner-supplied limited wording: repairs are guaranteed and, if a repaired item fails, Pierce will return in most cases at no additional charge. It does not promise parts coverage, a duration, or exceptions that were not supplied.
 
 ## Launch blockers — credentials, proof, and permission
 
-- [ ] **RPT / PTG wording:** Verify current Registered Piano Technician status and Piano Technicians Guild membership in the appropriate directory or documentation. Approve the exact words, credential links if any, and use of the reported “summer 2026” RPT recognition.
-- [ ] **Training history:** Confirm permission and accurate wording for the apprenticeship with Don Tuttle, including the reference to his former Baldwin factory-technician role. Never shorten this to “Baldwin trained” or “factory trained.”
-- [ ] **Experience figures:** Approve or remove the reported 2019 founding date, seven years of experience, and approximately 1,000 pianos tuned or serviced. Give each figure a current-as-of date if used.
+- [x] **RPT / PTG wording:** The published wording is Registered Piano Technician (RPT) and member of the Piano Technicians Guild (PTG). Credential links remain unlisted.
+- [x] **Training history:** The site uses the supplied apprenticeship wording for Don Tuttle, a former Baldwin factory technician with 70 years of experience. It does not use “Baldwin trained” or “factory trained.”
+- [x] **Experience figures:** The site publishes the supplied seven years of professional piano-service experience and approximately 1,000 pianos serviced. The 2019 founding date remains unlisted.
 - [ ] **Insurance / bonding / licensing:** Confirm any current status before publication. The questionnaire says neither insured nor bonded, so the site must not imply otherwise.
 - [ ] **Reviews and testimonials:** Provide approved review excerpts, source links, dates, attribution format, and written permission where required. Do not claim a review count, reuse social comments, or show aggregate ratings until verified.
 - [ ] **Named clients, venues, schools, or churches:** Obtain permission and confirm the relevant market before naming any client. Historic Nashville associations are not automatically relevant to the Utah-facing site.

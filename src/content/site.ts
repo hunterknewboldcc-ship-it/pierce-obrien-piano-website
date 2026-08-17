@@ -6,7 +6,7 @@ export const SITE = {
   launchReady: import.meta.env.PUBLIC_LAUNCH_READY === 'true',
   coreMessage: 'A refined ear for unmatched beauty.',
   defaultDescription:
-    'Performance-level piano tuning, repair, and refinement from Pierce O’Brien Piano.',
+    'Performance-level piano tuning, repair, and refinement for Salt Lake City from Pierce O’Brien Piano.',
   booking: {
     href: 'https://gazelleapp.io/scheduling/96knDrjXX3V40FVCG3cmzBgq',
     internalPath: '/book-contact/',
@@ -21,26 +21,36 @@ export const SITE = {
     publicAddress: null,
   },
   serviceArea: {
-    publicSummary: null,
-    travelPolicy: null,
+    publicSummary: 'Based in Sandy / Cottonwood Heights and serving Salt Lake City.',
+    travelPolicy:
+      'Travel is included within 20 miles of Pierce’s service base. Beyond that, travel is billed at $0.65 per mile round trip.',
+  },
+  serviceScope: {
+    instruments: 'Acoustic upright, grand, player, historic, and antique pianos',
+  },
+  appointmentPolicies: {
+    payments: 'Cash, check, bank transfer, and digital wallet',
+    sameDayCancellation: '$100',
+    sameDayReschedule: '$50',
   },
   credentials: {
     publicRPTWording: 'RPT',
-    publicPTGWording: null,
-    apprenticeshipWording: null,
+    publicPTGWording: 'Member of the Piano Technicians Guild (PTG)',
+    apprenticeshipWording:
+      'Apprentice with Don Tuttle, a former Baldwin factory technician with 70 years of experience.',
   },
   proof: {
     approvedReviews: [],
     approvedReviewCount: null,
     approvedClients: [],
-    approvedPianosServiced: null,
+    approvedPianosServiced: 1000,
   },
   pricing: {
-    tuning: null,
-    pitchRaise: null,
-    repairs: null,
-    lightCleaning: null,
-    deepCleaning: null,
+    tuning: '$225',
+    pitchRaise: '$75–$150 additional',
+    repairs: '$120 per hour, billed in 15-minute increments',
+    lightCleaning: '$75',
+    deepCleaning: '$200',
     discounts: null,
   },
 } as const;
@@ -57,29 +67,20 @@ export const pendingFacts = [
   {
     group: 'Location and travel',
     items: [
-      'Exact public service territory and approved geographic wording',
       'Google Business Profile service-area configuration',
-      'Travel-charge wording and calculation',
       'Confirmation that the residential service origin remains private',
     ],
   },
   {
     group: 'Credentials and proof',
-    items: [
-      'Exact public PTG credential wording beyond the approved RPT designation',
-      'Permission and wording for the Don Tuttle apprenticeship attribution',
-      'Approved experience and piano-service counts',
-      'Permissioned reviews, named clients, and testimonial excerpts',
-    ],
+    items: ['Permissioned reviews, named clients, and testimonial excerpts'],
   },
   {
     group: 'Commercial terms',
     items: [
-      'Final active prices and appointment durations',
-      'Repair scope, parts, diagnostics, and workmanship policy',
-      'Urgent or same-day conditions and any additional fee',
+      'Voicing price and estimated appointment length',
+      'Last-minute or emergency availability conditions',
       'Discount eligibility, dates, exclusions, and stacking rules',
-      'Payment methods and final cleaning-package scope',
     ],
   },
 ] as const;
@@ -143,11 +144,10 @@ export const SERVICES: Service[] = [
       {
         heading: 'Price, scope, and care interval',
         paragraphs: [
-          'Pierce recommends a regular schedule of two or three tunings each year. A piano that is cared for on a regular schedule is more likely to stay closer to pitch than one left untuned for long periods.',
+          `A fine tuning is ${SITE.pricing.tuning} and typically takes about two hours. It includes an assessment, fine tuning, light dusting, and an exterior wipe-down.`,
+          'Pierce recommends two to four tunings each year. A piano that is cared for on a regular schedule is more likely to stay closer to pitch than one left untuned for long periods.',
           'Playing time, humidity, and temperature changes can all affect pitch. Even a piano that is not being played can gradually move away from tune as its strings and structure respond to changing conditions.',
         ],
-        pending:
-          'The final public price, appointment scope, and expected duration are still awaiting owner approval.',
       },
     ],
     related: ['pitch-raise', 'regulation', 'voicing', 'tuning-after-moving'],
@@ -180,8 +180,9 @@ export const SERVICES: Service[] = [
       },
       {
         heading: 'Price and appointment length',
-        pending:
-          'The final public price range and expected appointment length require owner approval.',
+        paragraphs: [
+          `A pitch raise is ${SITE.pricing.pitchRaise} to the standard tuning price, depending on the piano’s starting pitch and condition. A pitch-raise appointment typically takes about three hours.`,
+        ],
       },
     ],
     related: ['piano-tuning', 'tuning-after-moving'],
@@ -212,9 +213,10 @@ export const SERVICES: Service[] = [
         ],
       },
       {
-        heading: 'Booking details',
-        pending:
-          'Final timing guidance, availability, and service territory are awaiting confirmation.',
+        heading: 'Coverage and travel',
+        paragraphs: [
+          'Pierce is based in Sandy / Cottonwood Heights and serves Salt Lake City. Travel is included within 20 miles of the service base; beyond that, travel is billed at $0.65 per mile round trip.',
+        ],
       },
     ],
     related: ['piano-tuning', 'pitch-raise', 'service-area-travel'],
@@ -247,8 +249,10 @@ export const SERVICES: Service[] = [
       },
       {
         heading: 'Rates and workmanship policy',
-        pending:
-          'Approved repair examples, hourly terms, parts and diagnostic policies, and final workmanship language are still required.',
+        paragraphs: [
+          `Repair work is ${SITE.pricing.repairs}. Repairs are guaranteed: if a repaired item fails, Pierce will return in most cases to address it at no additional charge.`,
+          'Tunings are different: every piano gradually moves out of tune over time, even after careful tuning. The next tuning interval depends on the piano, playing, and environment.',
+        ],
       },
     ],
     related: ['regulation', 'piano-tuning', 'pre-purchase-inspection'],
@@ -270,6 +274,7 @@ export const SERVICES: Service[] = [
         heading: 'Regulation: touch and response',
         paragraphs: [
           'Regulation focuses on the mechanical relationships inside the piano action. Its goal is more consistent response and control, with the exact scope determined by the instrument’s condition.',
+          'All pianos are candidates for regulation. The assessment identifies whether regulation is the appropriate next step for the action in front of Pierce.',
         ],
       },
       {
@@ -304,6 +309,7 @@ export const SERVICES: Service[] = [
         heading: 'What voicing changes',
         paragraphs: [
           'Voicing attends to tonal character rather than pitch alone. It can help a piano speak with more evenness, color, and clarity when the condition of the hammers and the player’s preferences point in that direction.',
+          'All pianos are candidates for voicing. If the hammers are already in good shape, voicing can proceed from the desired tonal direction.',
         ],
       },
       {
@@ -337,23 +343,20 @@ export const SERVICES: Service[] = [
       {
         heading: 'Light cleaning',
         paragraphs: [
-          'The lighter service is intended for the exterior and interior areas that can be reached without extensively taking the instrument apart. It can complement a regular care visit when scheduled appropriately.',
+          `Light cleaning is ${SITE.pricing.lightCleaning}. It focuses on the exterior and the interior areas that can be reached without extensively taking the instrument apart, and is recommended once each year.`,
         ],
       },
       {
         heading: 'Deep cleaning',
         paragraphs: [
-          'A deeper clean may involve removing keys and carefully accessing more of the piano’s interior, hardware, and soundboard area. The exact process must respect the instrument in front of the technician.',
+          `Deep cleaning is ${SITE.pricing.deepCleaning}. It includes a more extensive interior clean: removing keys, vacuuming accessible interior dust, cleaning under the keys, polishing key pins and hardware, dusting the soundboard, and restorative detailing where appropriate.`,
         ],
       },
       {
         heading: 'Packages, cadence, and pricing',
         paragraphs: [
-          'For a deeper interior clean, the action may be removed so dust and debris can be carefully vacuumed from inside the piano. Compressed air may be used in a minimally invasive way to help clear remaining debris.',
-          'Exterior cleaning and dusting are part of piano care as well. Depending on the instrument and the agreed scope, this may be followed by polishing or a hand rub.',
+          'Deep cleaning is recommended every three to five years. When it is combined with a fine tuning, plan on at least four hours for the appointment.',
         ],
-        pending:
-          'Final package names, cadence guidance, prices, and bundle terms are awaiting confirmation.',
       },
     ],
     related: ['piano-tuning', 'piano-repairs'],
