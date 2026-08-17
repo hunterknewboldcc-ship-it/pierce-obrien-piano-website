@@ -35,38 +35,42 @@ const faqs = [
       'Travel fees are quoted for the appointment location. If you would like an estimate, request it before booking; the appropriate travel fee is confirmed by phone or text before booking.',
   },
   {
-    question: 'Are repairs guaranteed?',
+    question: 'What happens at the first appointment?',
     answer:
-      '[COPY PENDING] Public workmanship language needs a written scope, exclusions, parts policy, and claim process. Tuning will not be described as a permanent or guaranteed condition.',
+      'Pierce begins with an assessment and consultation, looking at the piano as a whole rather than tuning in isolation. The first appointment also includes light dusting and key cleaning, followed by practical recommendations for the piano’s next steps.',
+  },
+  {
+    question: 'How does Pierce approach tuning?',
+    answer:
+      'Pierce tunes by ear and listens beyond pitch alone. Each piano is approached as an individual instrument, with attention to touch, tone, condition, and the musical character the owner wants to bring forward.',
   },
   {
     question: 'How do I book?',
-    answer:
-      '[COPY PENDING] Booking will connect to the approved Gazelle destination after the link and its mobile behavior are verified.',
+    answer: 'Book Now links directly to Pierce’s Gazelle scheduling page.',
   },
 ];
 ---
 
 <BaseLayout
-  title="Piano Service FAQ | Pierce O’Brien Piano"
-  description="Review verified piano-service answers about care, travel, booking, and policies."
+  title="Piano Care FAQ | Pierce O’Brien Piano"
+  description="Review practical answers about piano tuning, regulation, voicing, moving, travel, and booking with Pierce O’Brien Piano."
 >
   <PageIntro
-    title="Piano Service FAQ"
-    introduction="Find clear answers about piano care, travel, booking, and policies. Pricing is confirmed with the scope of each service."
+    title="Piano Care FAQ"
+    introduction="Find practical answers about piano care before booking. Service pricing is discussed within the relevant service page and confirmed from the piano’s assessed needs."
     image={MEDIA.tuning}
     imageAlt="Pierce O’Brien tuning a grand piano in a room lined with books"
-    actionLabel="View Booking Status"
-    actionHref="/book-contact/"
+    actionLabel="Explore Services"
+    actionHref="https://gazelleapp.io/scheduling/96knDrjXX3V40FVCG3cmzBgq"
   />
 
-  <section class="section">
+  <section class="section section--paper" id="faq">
     <div class="shell">
       <div class="section-heading">
         <h2>Frequently asked questions.</h2>
         <p>
-          These visible answers are intentionally conservative. No FAQ structured data is included
-          until the final copy is approved.
+          These answers provide useful general context; the specific piano still guides the service
+          conversation.
         </p>
       </div>
       <FaqList items={faqs} />

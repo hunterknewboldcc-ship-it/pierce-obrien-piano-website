@@ -3,6 +3,7 @@ import ArrowLink from '../components/ArrowLink.astro';
 import PageIntro from '../components/PageIntro.astro';
 import PendingCopy from '../components/PendingCopy.astro';
 import { MEDIA } from '../content/media';
+import { SITE } from '../content/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const intakeItems = [
@@ -20,29 +21,26 @@ const intakeItems = [
 
 <BaseLayout
   title="Book Piano Service | Pierce O’Brien Piano"
-  description="Prepare the useful details for a piano-service request while the approved Gazelle booking and contact destinations are connected."
+  description="Book piano service through Pierce O’Brien Piano’s Gazelle scheduling page and prepare useful details for a request."
 >
   <PageIntro
     title="Book / Contact"
-    introduction="The booking experience is designed to be direct and mobile-friendly. The approved Gazelle destination, contact details, and quote-routing workflow still need final owner confirmation."
+    introduction="Book Now opens Pierce’s Gazelle scheduling page. Contact details and quote-routing workflow will be added once those public details are approved."
     image={MEDIA.hero}
     imageAlt="Pierce O’Brien working at a grand piano"
-    actionLabel="View Booking Status"
-    actionHref="#booking-status"
+    actionLabel="Book Now"
+    actionHref={SITE.booking.href}
   />
 
   <section class="section section--paper" id="booking-status">
     <div class="shell">
       <div class="section-heading">
         <h2>One clear path to the calendar.</h2>
-        <p>
-          Once confirmed, Book Now will connect directly to Gazelle and be tested from both desktop
-          and mobile before launch.
-        </p>
+        <p>Book Now opens Pierce’s Gazelle scheduling page.</p>
       </div>
       <PendingCopy>
-        Connect the approved Gazelle URL, verify its mobile behavior, define a fallback path, and
-        add the approved text and quote destinations. No information is collected by this preview.
+        Add the approved text and quote destinations, define a fallback path, and publish the
+        related privacy and contact details. No information is collected by this preview.
       </PendingCopy>
     </div>
   </section>
@@ -71,8 +69,8 @@ const intakeItems = [
 
   <section class="section section--dark">
     <div class="closing-action shell">
-      <h2>Final destination pending owner approval.</h2>
-      <ArrowLink href="/pricing-faq/" label="Review Common Questions" />
+      <h2>Ready when your piano is.</h2>
+      <ArrowLink href={SITE.booking.href} label="Book Now" />
     </div>
   </section>
 </BaseLayout>

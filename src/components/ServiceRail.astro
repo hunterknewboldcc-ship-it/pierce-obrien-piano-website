@@ -1,13 +1,12 @@
 ---
-import { SERVICES } from '../content/site';
+import { SERVICE_CATEGORIES } from '../content/site';
 ---
 
 <div class="service-rail">
   {
-    SERVICES.map((service, index) => (
-      <a class="service-row" href={`/${service.slug}/`}>
-        <span class="service-number">{String(index + 1).padStart(2, '0')}</span>
-        <h3>{service.railTitle}</h3>
+    SERVICE_CATEGORIES.map((service) => (
+      <a class="service-row" href={service.href}>
+        <h3>{service.title}</h3>
         <p>{service.summary}</p>
         <svg class="service-arrow" viewBox="0 0 20 20" aria-hidden="true">
           <path

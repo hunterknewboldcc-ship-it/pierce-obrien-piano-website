@@ -1,32 +1,30 @@
 ---
 import { Image } from 'astro:assets';
 
-import ArrowLink from '../components/ArrowLink.astro';
 import PageIntro from '../components/PageIntro.astro';
 import { MEDIA } from '../content/media';
-import { SITE } from '../content/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
   title="About Pierce O’Brien | Pierce O’Brien Piano"
-  description="Meet Pierce O’Brien and learn about the careful listening, assessment, and plain-language guidance behind his piano work."
+  description="Meet Pierce O’Brien, RPT: a piano technician whose work is grounded in musical listening, recording-industry experience, and thoughtful piano care."
 >
   <PageIntro
     title="About Pierce"
-    introduction="Pierce O’Brien, RPT, is a guild-certified piano technician who treats tuning as a relationship between the piano, the player, and the room."
-    image={MEDIA.portrait}
-    imageAlt="Portrait of Pierce O’Brien seated in front of a grand piano"
-    imagePosition="center 28%"
+    introduction="Pierce O’Brien, RPT, is a guild-certified piano technician whose work begins with music, careful listening, and respect for the instrument in front of him."
+    image={MEDIA.hero}
+    imageAlt="Pierce O’Brien working at the strings of a grand piano"
+    imagePosition="center"
     actionLabel="Book With Pierce"
   />
 
   <section class="section section--paper">
     <div class="portrait-layout shell">
-      <div class="media-frame">
+      <div class="media-frame media-frame--portrait">
         <Image
           src={MEDIA.workingMonochrome}
-          alt="Pierce O’Brien working at the open strings of a grand piano"
+          alt="Pierce O’Brien working at an open grand piano"
           widths={[640, 960, 1280]}
           sizes="(max-width: 960px) 100vw, 40vw"
           loading="lazy"
@@ -34,75 +32,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         />
       </div>
       <div>
-        <h2>A trained ear, shaped in demanding rooms.</h2>
+        <h2>A musician’s ear for the details.</h2>
         <p>
           Before moving to Salt Lake City, Pierce spent more than five years in Nashville’s
-          recording industry. The work put him around exacting performers, songwriters, and sessions
-          where the smallest detail could change the sound in the room.
+          recording industry, in rooms where small changes could reshape what a performance felt
+          like.
         </p>
         <p>
-          That background still guides his piano work: listen closely, understand the instrument in
-          front of you, and explain what matters without leaving an owner out of the conversation.
+          That experience still informs his work at the piano: listen carefully, understand what the
+          instrument is capable of, and give the owner clear, useful guidance without making the
+          conversation feel technical for its own sake.
         </p>
         <p>
-          Pierce tunes by ear. His approach respects the way each piano responds differently,
-          looking beyond pitch alone to the touch, tone, condition, and character that make an
-          instrument feel like itself.
-        </p>
-        <p>
-          Every appointment begins with an assessment and consultation. At the first appointment,
-          Pierce also includes light dusting and key cleaning, then gives practical recommendations
-          for the care that will help the piano stay ready to play.
+          For a closer look at Pierce’s service philosophy—from assessment through long-term care—
+          visit the <a href="/piano-care-approach/">piano care approach</a>.
         </p>
       </div>
     </div>
   </section>
 
   <section class="section">
-    <div class="shell">
-      <div class="section-heading">
-        <h2>A method built around the piano in front of you.</h2>
-        <p>
-          The goal is not a one-size-fits-all result. It is a piano that sounds and feels more at
-          home with the person playing it, plus a clear plan for the care ahead.
-        </p>
-      </div>
-      <div class="process-rail">
-        <section class="process-step">
-          <span>01</span>
-          <h3>Listen</h3>
-          <p>Start with what the owner hears, feels, and hopes the piano can do.</p>
-        </section>
-        <section class="process-step">
-          <span>02</span>
-          <h3>Tune by ear</h3>
-          <p>Work with the piano’s pitch, touch, tone, and individual character.</p>
-        </section>
-        <section class="process-step">
-          <span>03</span>
-          <h3>Plan for care</h3>
-          <p>Leave with useful recommendations for follow-up care and a better-kept piano.</p>
-        </section>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--paper">
     <div class="owner-event shell">
       <div class="owner-event-copy">
         <h2>Continued study, close to the work.</h2>
         <p>
           This owner-supplied photograph records Pierce at the 2026 Piano Technicians Guild
-          convention. Continued study keeps the work grounded in careful listening, thoughtful
+          convention. Continued study keeps the work grounded in attentive listening, thoughtful
           assessment, and better choices for each individual instrument.
         </p>
       </div>
       <figure class="owner-event-photo">
         <Image
           src={MEDIA.rptEvent}
-          alt="Pierce O’Brien beside an event display at a piano-technician convention"
-          widths={[420, 720, 1080, 1400]}
-          sizes="(max-width: 960px) 86vw, 42vw"
+          alt="Pierce O’Brien beside a Registered Piano Technician convention display"
+          widths={[640, 960, 1280]}
+          sizes="(max-width: 960px) 86vw, 50vw"
           loading="lazy"
           decoding="async"
         />
@@ -114,16 +78,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="section section--dark statement">
     <div class="shell">
       <p class="statement-copy">
-        The value of a piano is not limited to its price. A family’s first upright deserves the same
-        honest attention as a performance grand.
+        Expert care for all pianos—from a family’s first upright to a performance grand.
       </p>
-    </div>
-  </section>
-
-  <section class="section section--paper">
-    <div class="closing-action shell">
-      <h2>Work directly with the technician.</h2>
-      <ArrowLink href={SITE.booking.internalPath} label="Book Now" />
     </div>
   </section>
 </BaseLayout>

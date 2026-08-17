@@ -2,30 +2,10 @@
 import { Image } from 'astro:assets';
 
 import ArrowLink from '../components/ArrowLink.astro';
-import FaqList from '../components/FaqList.astro';
-import MediaShowcase from '../components/MediaShowcase.astro';
 import ServiceRail from '../components/ServiceRail.astro';
 import { MEDIA } from '../content/media';
 import { SITE } from '../content/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const faqs = [
-  {
-    question: 'What piano services are available?',
-    answer:
-      'Pierce offers piano tuning, pitch raises, tuning after moving, piano repairs, regulation, voicing, cleaning, pre-purchase inspections, and purchase consulting. The exact scope for a particular piano is confirmed after assessment.',
-  },
-  {
-    question: 'What types of pianos does Pierce service?',
-    answer:
-      'The owner questionnaire lists acoustic uprights, grand pianos, player pianos, and historic or antique instruments. The service scope for a particular player or historic piano should be confirmed before the appointment.',
-  },
-  {
-    question: 'How do I book?',
-    answer:
-      '[COPY PENDING] The approved Gazelle booking destination will replace this preview note after its URL and mobile behavior are confirmed.',
-  },
-];
 ---
 
 <BaseLayout
@@ -37,17 +17,17 @@ const faqs = [
     <div class="hero-grid shell">
       <div class="hero-copy">
         <h1>{SITE.coreMessage}</h1>
-        <p>Performance level tuning, repair, and refinement.</p>
+        <p>Performance-level tuning, repair, and refinement.</p>
         <div class="hero-actions">
-          <a class="button button--primary" href={SITE.booking.internalPath}>Book Now</a>
+          <a class="button button--primary" href={SITE.booking.href}>Book Now</a>
           <a class="button button--outline" href="#services">Explore Services</a>
         </div>
       </div>
 
       <div class="hero-media">
         <Image
-          src={MEDIA.hero}
-          alt="Pierce O’Brien working at the strings of a grand piano"
+          src={MEDIA.portrait}
+          alt="Pierce O’Brien seated behind the strings of a grand piano"
           widths={[720, 960, 1280, 1800]}
           quality={60}
           sizes="(max-width: 960px) 100vw, 45vw"
@@ -64,8 +44,8 @@ const faqs = [
       <div class="section-heading">
         <h2>Care for pitch, touch, tone, and condition.</h2>
         <p>
-          Begin with the service you recognize. An assessment can clarify whether the piano needs a
-          different or additional kind of care.
+          Choose the kind of care that sounds closest to what your piano needs. Every appointment
+          begins with a careful assessment and clear next steps.
         </p>
       </div>
       <ServiceRail />
@@ -95,93 +75,10 @@ const faqs = [
     </div>
   </section>
 
-  <section class="section section--paper">
-    <div class="shell">
-      <div class="section-heading">
-        <h2>A clear path through the appointment.</h2>
-        <p>Precision is easier to trust when the process is explained in plain language.</p>
-      </div>
-      <div class="process-rail">
-        <section class="process-step">
-          <span>01</span>
-          <h3>Listen</h3>
-          <p>Begin with what you hear, feel, and want from the instrument.</p>
-        </section>
-        <section class="process-step">
-          <span>02</span>
-          <h3>Assess</h3>
-          <p>Consider pitch, touch, tone, condition, and the piano’s recent history.</p>
-        </section>
-        <section class="process-step">
-          <span>03</span>
-          <h3>Care</h3>
-          <p>Complete the agreed service and explain useful next steps without overstatement.</p>
-        </section>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--dark statement">
-    <div class="shell">
-      <p class="statement-copy">
-        From a concert-ready grand to the upright that begins a family’s musical story, every piano
-        deserves careful work and honest advice.
-      </p>
-    </div>
-  </section>
-
-  <MediaShowcase />
-
-  <section class="section">
-    <div class="shell">
-      <div class="section-heading">
-        <h2>Piano care, explained.</h2>
-        <p>
-          The resource library is structured around the questions owners ask before and after an
-          appointment.
-        </p>
-      </div>
-      <div class="resource-rail">
-        <article class="resource-item">
-          <h3>Utah’s dry climate and seasonal change</h3>
-          <p>
-            Dry conditions and temperature shifts can influence a piano’s pitch and stability. A
-            steady environment and regular attention make changes easier to catch early.
-          </p>
-        </article>
-        <article class="resource-item">
-          <h3>Tuning, regulation, and voicing</h3>
-          <p>Understand the difference between pitch, touch, and tonal character.</p>
-        </article>
-        <article class="resource-item">
-          <h3>After a piano move</h3>
-          <p>Know which details to share before scheduling a post-move assessment.</p>
-        </article>
-        <article class="resource-item">
-          <h3>Before buying a used piano</h3>
-          <p>Bring a technician’s perspective into the decision before you commit.</p>
-        </article>
-      </div>
-      <div style="margin-top: 2.25rem">
-        <ArrowLink href="/piano-care-resources/" label="Explore Care Guides" />
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--paper" id="faq">
-    <div class="shell">
-      <div class="section-heading">
-        <h2>Useful answers before you book.</h2>
-        <p>Clear answers to the service questions that matter before you book.</p>
-      </div>
-      <FaqList items={faqs} />
-    </div>
-  </section>
-
   <section class="section section--dark">
     <div class="closing-action shell">
       <h2>Bring your piano closer to its best.</h2>
-      <ArrowLink href={SITE.booking.internalPath} label="Book Now" />
+      <ArrowLink href={SITE.booking.href} label="Book Now" />
     </div>
   </section>
 </BaseLayout>

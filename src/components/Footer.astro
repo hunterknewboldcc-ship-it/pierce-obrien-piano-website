@@ -1,11 +1,15 @@
 ---
-import { SERVICES, SITE } from '../content/site';
+import { SERVICE_CATEGORIES, SITE } from '../content/site';
 
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
   <div class="shell">
+    <div class="footer-cta">
+      <strong>Work directly with the technician.</strong>
+      <a class="button button--primary" href={SITE.booking.href}>Book Now</a>
+    </div>
     <div class="footer-grid">
       <div class="footer-brand">
         <strong>{SITE.name}</strong>
@@ -16,9 +20,9 @@ const year = new Date().getFullYear();
         <h2>Services</h2>
         <ul>
           {
-            SERVICES.slice(0, 5).map((service) => (
+            SERVICE_CATEGORIES.slice(0, 5).map((service) => (
               <li>
-                <a href={`/${service.slug}/`}>{service.railTitle}</a>
+                <a href={service.href}>{service.title}</a>
               </li>
             ))
           }
@@ -30,7 +34,8 @@ const year = new Date().getFullYear();
         <ul>
           <li><a href="/about-pierce/">About Pierce</a></li>
           <li><a href="/service-area-travel/">Service area & travel</a></li>
-          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="/pricing-faq/#faq">FAQ</a></li>
+          <li><a href="/piano-care-approach/">Piano care approach</a></li>
           <li><a href="/piano-care-resources/">Piano care resources</a></li>
           <li><a href="/book-contact/">Book / contact</a></li>
         </ul>

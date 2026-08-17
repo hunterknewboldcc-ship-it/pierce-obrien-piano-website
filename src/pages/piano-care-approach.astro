@@ -1,0 +1,63 @@
+---
+import MediaShowcase from '../components/MediaShowcase.astro';
+import PageIntro from '../components/PageIntro.astro';
+import { MEDIA } from '../content/media';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const approach = [
+  {
+    title: 'Background',
+    copy: 'More than five years in Nashville’s recording industry taught Pierce how much musical detail can matter. That listening-first background now informs every piano appointment.',
+  },
+  {
+    title: 'Mission',
+    copy: 'The aim is simple: help piano owners enjoy instruments that invite expression, feel responsive to play, and are cared for with clear guidance.',
+  },
+  {
+    title: 'Method',
+    copy: 'Pierce tunes by ear and works from the individual instrument, attending to pitch, touch, tone, condition, and the character that makes a piano feel like itself.',
+  },
+  {
+    title: 'Long-term care',
+    copy: 'Every appointment includes an assessment and consultation. The first appointment also includes light dusting and key cleaning, followed by practical recommendations for the piano’s next steps.',
+  },
+];
+---
+
+<BaseLayout
+  title="Piano Care Approach | Pierce O’Brien Piano"
+  description="Learn how Pierce O’Brien approaches piano care: careful listening, tuning by ear, whole-instrument assessment, and practical long-term guidance."
+>
+  <PageIntro
+    title="Piano Care Approach"
+    introduction="A piano’s best care begins with careful listening. Pierce’s approach brings musical attention, whole-instrument assessment, and practical next steps into the same appointment."
+    image={MEDIA.ownerLandscape}
+    imageAlt="Pierce O’Brien seated behind the strings of a grand piano"
+    imagePosition="center 42%"
+    actionLabel="Explore Services"
+    actionHref="/#services"
+  />
+
+  <section class="section section--paper">
+    <div class="shell">
+      <div class="section-heading">
+        <h2>The work behind the appointment.</h2>
+        <p>
+          These principles guide the work without replacing an in-person look at the specific piano.
+        </p>
+      </div>
+      <div class="approach-grid">
+        {
+          approach.map((item) => (
+            <article class="approach-card">
+              <h2>{item.title}</h2>
+              <p>{item.copy}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <MediaShowcase />
+</BaseLayout>

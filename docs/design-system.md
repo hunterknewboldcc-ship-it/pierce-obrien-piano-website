@@ -43,7 +43,7 @@ The hero background is true charcoal; the main background is deliberately warm i
 
 - Maximum content width: 80rem; readable text width: 44rem.
 - Side gutter: `clamp(1.25rem, 4vw, 4.5rem)`.
-- Section spacing: `clamp(4.5rem, 9vw, 8rem)`.
+- Section spacing: `clamp(2.4rem, 4.5vw, 4rem)`.
 - Do not place every section in a card. Use open rails, bands, and hairline dividers.
 - Corners remain mostly square; media may use a restrained 2px radius.
 - Shadows are reserved for the mobile navigation surface and focused form elements.
@@ -53,19 +53,20 @@ The hero background is true charcoal; the main background is deliberately warm i
 Allowed visible copy:
 
 - Pierce O’Brien Piano
-- Services
+- Tuning
 - About Pierce
-- Pricing & FAQ
+- Other Services
+- FAQ
 - Resources
 - Book Now
-- Piano tuning with a sharper ear for the details.
-- Performance-grade tuning, repair, and piano care. Every appointment begins with careful listening and ends with clear guidance for your piano.
+- A refined ear for unmatched beauty.
+- Performance-level tuning, repair, and refinement.
 
 Composition:
 
 1. A simple wordmark, four essential navigation links, and one Book Now action.
-2. A two-column hero. The message occupies approximately 55%; the authentic grand-piano work photo occupies 45%.
-3. Book Now routes to the internal Book / Contact page until the Gazelle URL is confirmed.
+2. A two-column hero. The message occupies approximately 55%; the owner-supplied grand-piano portrait occupies 45%.
+3. Book Now opens the approved external Gazelle scheduler.
 4. The next section begins within the first scroll as an ivory service rail.
 
 No hero eyebrow, credential badge, review metric, secondary CTA, phone number, text action, or location list is allowed before those facts and destinations are approved.
@@ -88,14 +89,14 @@ All images require accurate descriptive alt text. Do not imply a pictured venue 
 
 - Header: desktop navigation and keyboard-safe mobile disclosure.
 - Buttons: gold primary, light-outline inverse, and text-arrow link.
-- Service rail: numbered open rows with title, short approved description, and arrow.
+- Service rail: six unnumbered open rows with title, short approved description, and arrow.
 - Editorial split: text plus authentic image with stable aspect ratio.
 - Fact / process steps: open three-column rail, not cards.
 - FAQ: native disclosure elements with visible question and answer.
 - Page intro: dark band with one H1, short answer-first introduction, and one relevant action.
 - Quote-intake preview: labeled, accessible fields with no submission until the approved destination and privacy handling exist.
 - Sticky mobile action: Book Now only until contact and text workflows are approved.
-- Footer: brand, route groups, domain, and a concise pending-contact note only in preview mode.
+- Footer: a direct technician-and-booking action, brand, route groups, and domain.
 
 ## Route and content model
 
@@ -106,7 +107,8 @@ Required routes:
 - `/pitch-raise/`
 - `/tuning-after-moving/`
 - `/piano-repairs/`
-- `/regulation-voicing/`
+- `/regulation/`
+- `/voicing/`
 - `/piano-cleaning/`
 - `/pre-purchase-inspection/`
 - `/about-pierce/`
@@ -114,6 +116,7 @@ Required routes:
 - `/pricing-faq/`
 - `/book-contact/`
 - `/piano-care-resources/`
+- `/piano-care-approach/`
 
 Each page receives one intent, unique title and description, one H1, a canonical URL on `https://www.pierceobrienpiano.com`, descriptive internal links, and visible facts only from the approved source hierarchy.
 
@@ -127,6 +130,6 @@ Each page receives one intent, unique title and description, one H1, a canonical
 
 ## Core interaction under test
 
-`Homepage → Book Now → Book / Contact page → view the approved intake checklist and the explicit Gazelle connection-pending state.`
+`Homepage → Book Now → approved Gazelle scheduler.`
 
 The mobile path must retain a visible Book Now action, expose a keyboard-safe menu, and avoid horizontal overflow at 390px.

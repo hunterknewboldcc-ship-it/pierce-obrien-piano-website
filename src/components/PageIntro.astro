@@ -2,6 +2,8 @@
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 
+import { SITE } from '../content/site';
+
 interface Props {
   title: string;
   introduction: string;
@@ -19,7 +21,7 @@ const {
   imageAlt,
   imagePosition = 'center',
   actionLabel = 'Book Now',
-  actionHref = '/book-contact/',
+  actionHref = SITE.booking.href,
 } = Astro.props;
 ---
 

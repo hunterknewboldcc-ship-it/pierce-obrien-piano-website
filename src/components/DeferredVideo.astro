@@ -6,7 +6,7 @@ interface Props {
   src: string;
   poster: ImageMetadata;
   label: string;
-  caption: string;
+  caption?: string;
   compact?: boolean;
 }
 
@@ -36,7 +36,7 @@ const sizes = compact ? '(max-width: 720px) 12rem, 14vw' : '(max-width: 960px) 7
       Your browser cannot play this video. <a href={src}>Open the MP4 file.</a>
     </video>
   </div>
-  <figcaption>{caption}</figcaption>
+  {caption && <figcaption>{caption}</figcaption>}
   <noscript><a href={src}>Open video: {label}</a></noscript>
 </figure>
 

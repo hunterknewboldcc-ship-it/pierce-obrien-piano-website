@@ -2,7 +2,7 @@ import cleaning from '../assets/photos/polished-kawai-grand.webp';
 import serviceVideoPoster from '../assets/photos/pierce-at-grand-poster.webp';
 import ownerLandscape from '../assets/photos/pierce-owner-portrait-landscape.webp';
 import portrait from '../assets/photos/pierce-owner-portrait-vertical.webp';
-import rptEvent from '../assets/photos/pierce-owner-rpt-event.webp';
+import rptEvent from '../assets/photos/pierce-owner-rpt-convention.webp';
 import tuningFestival from '../assets/photos/pierce-owner-tuning-festival.webp';
 import tuning from '../assets/photos/pierce-owner-tuning-library.webp';
 import workingMonochrome from '../assets/photos/pierce-owner-tuning-monochrome.webp';

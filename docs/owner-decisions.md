@@ -56,7 +56,7 @@ The planned canonical domain is `https://www.pierceobrienpiano.com`. The site is
 - [ ] **Core message and tagline:** Select the approved lead message / tagline. The current working line is “Piano tuning with a sharper ear for the details.” Suggested alternatives remain drafts until approved.
 - [ ] **Brand assets:** Approve wordmark/logo treatment, black / charcoal / warm-gold / ivory palette, typography, favicon, social sharing image, and any use of the owner’s likeness.
 - [ ] **Voice boundary:** Approve premium-but-approachable positioning without unsupported superiority language. Do not use “best,” “elite,” “unmatched,” “perfect,” or claims that Pierce’s tunings outlast every competitor.
-- [ ] **Booking destination:** Supply the live Gazelle booking URL, choose external handoff versus approved embed, test it on mobile, and confirm the fallback if Gazelle is unavailable.
+- [x] **Booking destination:** The site uses the approved external Gazelle scheduler at `https://gazelleapp.io/scheduling/96knDrjXX3V40FVCG3cmzBgq`. Confirm the fallback if Gazelle is unavailable.
 - [ ] **Quote intake:** Approve the form destination, data handler, notification recipient, spam protection, privacy copy, consent language, and each requested field. The recommended fields are service, piano type, general city/neighborhood, last tuning, recent move, symptoms, photos if supported, preferred contact method, and appointment window.
 - [ ] **Analytics and conversion definitions:** Approve the analytics / consent setup and define which events count as Book Now clicks, completed bookings, text inquiries, quote submissions, repeat bookings, and add-on services.
 
@@ -77,7 +77,7 @@ Collect these before switching the live domain:
 1. Approved contact and service-area facts.
 2. Current price sheet, travel rules, offers, and written repair-workmanship policy.
 3. Credential evidence and approved public wording.
-4. Gazelle booking URL plus a successful mobile test.
+4. A successful mobile test of the approved Gazelle booking URL.
 5. Approved testimonials and photo / client permissions.
 6. Google Business Profile access and corrected profile details.
 7. Domain/DNS/Wix access, canonical-host decision, and approved redirect map.

@@ -12,6 +12,7 @@ All still images are published as WebP. Original HEIC, JPEG, and MOV files remai
 | ---------------------------------------------------------- | -------------------------------------- | --------------------------------------------------------------- |
 | `FullSizeRender.heic`                                      | `pierce-owner-tuning-library.webp`     | Piano Tuning service imagery                                    |
 | `IMG_1186.heic`                                            | `pierce-owner-rpt-event.webp`          | About-page convention photograph; credential copy remains gated |
+| `codex-clipboard-45b90ff1-fb28-4a48-bf47-d6f89c147894.png` | `pierce-owner-rpt-convention.webp`     | About-page 2026 convention photograph                           |
 | `IMG_5007.HEIC`                                            | `pierce-owner-tuning-festival.webp`    | Homepage media showcase                                         |
 | `codex-clipboard-3db7d6f6-beea-4adb-89c4-f8b08e6c1fa7.jpg` | `pierce-owner-portrait-vertical.webp`  | About-page lead portrait                                        |
 | `codex-clipboard-4eac4cbf-1085-4c40-b071-fce120c3e098.jpg` | `pierce-owner-portrait-landscape.webp` | Homepage media showcase                                         |

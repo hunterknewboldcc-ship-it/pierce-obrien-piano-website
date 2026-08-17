@@ -7,6 +7,7 @@ const PROJECT_ROOT = process.cwd();
 const DIST_DIR = path.join(PROJECT_ROOT, 'dist');
 const SITE_ORIGIN = 'https://www.pierceobrienpiano.com';
 const CANONICAL_HOST = 'www.pierceobrienpiano.com';
+const GAZELLE_BOOKING_URL = 'https://gazelleapp.io/scheduling/96knDrjXX3V40FVCG3cmzBgq';
 
 const REQUIRED_ROUTES = [
   '/',
@@ -14,7 +15,8 @@ const REQUIRED_ROUTES = [
   '/pitch-raise/',
   '/tuning-after-moving/',
   '/piano-repairs/',
-  '/regulation-voicing/',
+  '/regulation/',
+  '/voicing/',
   '/piano-cleaning/',
   '/pre-purchase-inspection/',
   '/about-pierce/',
@@ -22,6 +24,7 @@ const REQUIRED_ROUTES = [
   '/pricing-faq/',
   '/book-contact/',
   '/piano-care-resources/',
+  '/piano-care-approach/',
 ];
 
 function requireBuiltSite() {
@@ -69,6 +72,13 @@ function allBuiltHtml() {
 
 function tags(html, tagName) {
   return [...html.matchAll(new RegExp(`<${tagName}\\b[^>]*>`, 'gi'))].map((match) => match[0]);
+}
+
+function anchorsWithContent(html) {
+  return [...html.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi)].map((match) => ({
+    tag: `<a${match[1]}>`,
+    content: match[2],
+  }));
 }
 
 function attribute(tag, name) {
@@ -171,9 +181,53 @@ function locsFromXml(xml) {
   );
 }
 
-test('the static build contains all 13 required routes', () => {
+test('the static build contains all 15 required routes', () => {
   const pages = requiredPages();
-  assert.equal(pages.length, 13);
+  assert.equal(pages.length, 15);
+});
+
+test('the homepage presents the approved navigation, hero copy, and six service categories', () => {
+  const { html } = readBuiltPage('/');
+  const text = normaliseText(html);
+
+  for (const label of ['Tuning', 'About Pierce', 'Other Services', 'FAQ', 'Resources']) {
+    assert.match(text, new RegExp(`\\b${label}\\b`), `Homepage is missing ${label} navigation.`);
+  }
+
+  assert.doesNotMatch(
+    text,
+    /Pricing & FAQ/,
+    'Homepage should not present a combined Pricing & FAQ tab.',
+  );
+  assert.match(text, /A refined ear for unmatched beauty\./);
+  assert.match(text, /Performance-level tuning, repair, and refinement\./);
+  assert.doesNotMatch(text, /A clear path through the appointment\./);
+  assert.doesNotMatch(text, /Piano care in motion\./);
+  assert.doesNotMatch(text, /Useful answers before you book\./);
+
+  for (const category of [
+    'Tuning',
+    'Regulation',
+    'Voicing',
+    'Cleaning',
+    'Repairs',
+    'Pre-purchase consulting',
+  ]) {
+    assert.match(
+      text,
+      new RegExp(category),
+      `Homepage is missing the ${category} service category.`,
+    );
+  }
+});
+
+test('the legacy Regulation & Voicing URL redirects to Regulation', () => {
+  const redirectPath = path.join(DIST_DIR, 'regulation-voicing', 'index.html');
+  assert.ok(fs.existsSync(redirectPath), 'Missing legacy Regulation & Voicing redirect page.');
+
+  const html = fs.readFileSync(redirectPath, 'utf8');
+  assert.match(html, /http-equiv="refresh" content="0;url=\/regulation\/"/i);
+  assert.match(html, /rel="canonical" href="https:\/\/www\.pierceobrienpiano\.com\/regulation\/"/i);
 });
 
 test('every required page has unique SEO metadata, one H1, and the canonical production URL', () => {
@@ -258,6 +312,37 @@ test('internal local links resolve to a file in the static build', () => {
   }
 
   assert.deepEqual(failures, [], failures.join('\n'));
+});
+
+test('Book Now links use the approved Gazelle scheduler and retired media captions are absent', () => {
+  const bookingLinks = [];
+  const renderedHtml = allBuiltHtml()
+    .map((page) => page.html)
+    .join('\n');
+
+  for (const page of allBuiltHtml()) {
+    for (const anchor of anchorsWithContent(page.html)) {
+      const label = normaliseText(anchor.content);
+      if (/^(?:Book Now|Book With Pierce)$/.test(label)) {
+        bookingLinks.push({ page: page.filePath, href: attribute(anchor.tag, 'href') });
+      }
+    }
+  }
+
+  assert.ok(bookingLinks.length >= 10, 'Expected Book Now links throughout the built site.');
+  assert.deepEqual(
+    bookingLinks.filter((link) => link.href !== GAZELLE_BOOKING_URL),
+    [],
+    'Every Book Now link must use the approved Gazelle scheduler.',
+  );
+  assert.doesNotMatch(
+    renderedHtml,
+    /Owner-supplied photographs and short clips place the instrument/i,
+  );
+  assert.doesNotMatch(
+    renderedHtml,
+    /At the grand piano\. The full video loads only when you choose to play it\./i,
+  );
 });
 
 test('rendered HTML contains no stale legacy content or unapproved testimonial markup', () => {

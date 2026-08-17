@@ -6,10 +6,11 @@ export const SITE = {
   launchReady: import.meta.env.PUBLIC_LAUNCH_READY === 'true',
   coreMessage: 'A refined ear for unmatched beauty.',
   defaultDescription:
-    'Performance-minded piano tuning, repair, and thoughtful piano care from Pierce O’Brien Piano.',
+    'Performance-level piano tuning, repair, and refinement from Pierce O’Brien Piano.',
   booking: {
+    href: 'https://gazelleapp.io/scheduling/96knDrjXX3V40FVCG3cmzBgq',
     internalPath: '/book-contact/',
-    gazelleUrl: null,
+    gazelleUrl: 'https://gazelleapp.io/scheduling/96knDrjXX3V40FVCG3cmzBgq',
     textUrl: null,
     quoteDestination: null,
   },
@@ -48,7 +49,6 @@ export const pendingFacts = [
   {
     group: 'Contact and booking',
     items: [
-      'Gazelle booking URL and mobile behavior',
       'Public phone number and text-message workflow',
       'Public business email and quote-request destination',
       'Public hours and response expectations',
@@ -87,8 +87,8 @@ export const pendingFacts = [
 export const NAVIGATION = [
   { label: 'Tuning', href: '/piano-tuning/' },
   { label: 'About Pierce', href: '/about-pierce/' },
-  { label: 'Other services', href: '/#services' },
-  { label: 'FAQ', href: '/#faq' },
+  { label: 'Other Services', href: '/#services' },
+  { label: 'FAQ', href: '/pricing-faq/#faq' },
   { label: 'Resources', href: '/piano-care-resources/' },
 ] as const;
 
@@ -123,7 +123,7 @@ export const SERVICES: Service[] = [
       'Learn how piano tuning addresses pitch, what an assessment considers, and when a piano may need related care.',
     summary: 'Pitch-focused service with careful listening and a whole-instrument assessment.',
     introduction:
-      'Piano tuning adjusts string tension to bring the instrument’s pitches into musical relationship. Pierce offers standard piano tuning after assessing the piano’s current pitch and condition.',
+      'Pierce tunes by ear, assessing the piano’s pitch, condition, touch, and tonal character before tuning. Pitch raises and post-move care begin with the same whole-instrument perspective.',
     image: 'tuning',
     imageAlt: 'Pierce O’Brien tuning a grand piano in a room lined with books',
     sections: [
@@ -150,7 +150,7 @@ export const SERVICES: Service[] = [
           'The final public price, appointment scope, and expected duration are still awaiting owner approval.',
       },
     ],
-    related: ['pitch-raise', 'regulation-voicing', 'tuning-after-moving'],
+    related: ['pitch-raise', 'regulation', 'voicing', 'tuning-after-moving'],
   },
   {
     slug: 'pitch-raise',
@@ -214,7 +214,7 @@ export const SERVICES: Service[] = [
       {
         heading: 'Booking details',
         pending:
-          'Final timing guidance, availability, service territory, and the Gazelle booking destination are awaiting confirmation.',
+          'Final timing guidance, availability, and service territory are awaiting confirmation.',
       },
     ],
     related: ['piano-tuning', 'pitch-raise', 'service-area-travel'],
@@ -251,20 +251,20 @@ export const SERVICES: Service[] = [
           'Approved repair examples, hourly terms, parts and diagnostic policies, and final workmanship language are still required.',
       },
     ],
-    related: ['regulation-voicing', 'piano-tuning', 'pre-purchase-inspection'],
+    related: ['regulation', 'piano-tuning', 'pre-purchase-inspection'],
   },
   {
-    slug: 'regulation-voicing',
-    title: 'Regulation & Voicing',
-    railTitle: 'Regulation & voicing',
-    metaTitle: 'Piano Regulation & Voicing | Pierce O’Brien Piano',
+    slug: 'regulation',
+    title: 'Piano Regulation',
+    railTitle: 'Regulation',
+    metaTitle: 'Piano Regulation | Pierce O’Brien Piano',
     metaDescription:
-      'Learn the difference between tuning, regulation, and voicing when a piano’s touch or tonal character needs attention.',
-    summary: 'Thoughtful work on touch, action response, and tonal character beyond pitch alone.',
+      'Learn how piano regulation addresses touch and action response when tuning alone does not solve the playing experience.',
+    summary: 'Thoughtful work on touch and action response beyond pitch alone.',
     introduction:
-      'Tuning addresses pitch. Regulation addresses touch and action response. Voicing addresses tonal character. Pierce offers regulation and voicing when an assessment shows that pitch is only part of the playing experience.',
-    image: 'voicing',
-    imageAlt: 'Close view of piano hammers and action parts during service',
+      'Regulation addresses the mechanical relationships inside the piano action. It is the service to consider when the piano’s touch and response need more attention than tuning can provide.',
+    image: 'regulation',
+    imageAlt: 'The exposed action and hammers of an upright piano during service',
     sections: [
       {
         heading: 'Regulation: touch and response',
@@ -273,21 +273,53 @@ export const SERVICES: Service[] = [
         ],
       },
       {
-        heading: 'Voicing: tonal character',
+        heading: 'A scope shaped by the instrument',
         paragraphs: [
-          'Voicing shapes how the hammers interact with the strings and therefore how the piano’s tone is perceived. It follows a conversation about the instrument and the player’s goals.',
+          'A touch-up may take a few hours. More extensive work may involve taking the action to Pierce’s workshop and returning it in a day or two, rather than spending full days in the home.',
         ],
       },
       {
-        heading: 'Scope and pricing',
+        heading: 'Pricing within the service',
         paragraphs: [
-          'Regulation and voicing are separate services. All pianos can be candidates for either one, with the scope determined after assessment and a discussion of needs.',
-          'For regulation, a touch-up may take a few hours; more extensive work may involve taking the action to Pierce’s workshop and returning it in a day or two rather than spending full days in the home. Regulation is quoted by the hour after assessment. A touch-up regulation can be $200, and a full regulation can be up to $1,000.',
-          'Voicing typically begins with reshaping the hammers. The client is involved in tonal decisions: Pierce begins with one note, brings it to the desired feel and sound, then models that result across the remaining hammers. Major voicing adjustments include a free follow-up appointment after two to three weeks of playing to even out the voicing.',
+          'Regulation is quoted by the hour after assessment. A touch-up regulation can be $200, and a full regulation can be up to $1,000.',
         ],
       },
     ],
-    related: ['piano-tuning', 'piano-repairs'],
+    related: ['piano-tuning', 'voicing', 'piano-repairs'],
+  },
+  {
+    slug: 'voicing',
+    title: 'Piano Voicing',
+    railTitle: 'Voicing',
+    metaTitle: 'Piano Voicing | Pierce O’Brien Piano',
+    metaDescription:
+      'Learn how piano voicing shapes tonal character through careful work on the hammers and a conversation about the player’s goals.',
+    summary: 'Careful work on tonal character, shaped around the player and instrument.',
+    introduction:
+      'Voicing shapes how the hammers interact with the strings and therefore how the piano’s tone is perceived. It follows a conversation about the instrument and the player’s goals.',
+    image: 'voicing',
+    imageAlt: 'Close view of piano hammers and action parts during tonal service',
+    sections: [
+      {
+        heading: 'What voicing changes',
+        paragraphs: [
+          'Voicing attends to tonal character rather than pitch alone. It can help a piano speak with more evenness, color, and clarity when the condition of the hammers and the player’s preferences point in that direction.',
+        ],
+      },
+      {
+        heading: 'A tonal decision made together',
+        paragraphs: [
+          'Voicing typically begins with reshaping the hammers. Pierce begins with one note, brings it toward the desired feel and sound, then models that result across the remaining hammers with the client involved in the tonal decisions.',
+        ],
+      },
+      {
+        heading: 'Follow-up care',
+        paragraphs: [
+          'Major voicing adjustments include a complimentary follow-up appointment after two to three weeks of playing to even out the voicing.',
+        ],
+      },
+    ],
+    related: ['piano-tuning', 'regulation', 'piano-repairs'],
   },
   {
     slug: 'piano-cleaning',
@@ -366,6 +398,39 @@ export const SERVICES: Service[] = [
 
 export const SERVICE_BY_SLUG = new Map(SERVICES.map((service) => [service.slug, service]));
 
+export const SERVICE_CATEGORIES = [
+  {
+    title: 'Tuning',
+    summary: 'Tuning, pitch raises, and post-move care shaped by the whole instrument.',
+    href: '/piano-tuning/',
+  },
+  {
+    title: 'Regulation',
+    summary: 'Careful work on touch, action response, and mechanical consistency.',
+    href: '/regulation/',
+  },
+  {
+    title: 'Voicing',
+    summary: 'Tonal refinement shaped around the piano and the person playing it.',
+    href: '/voicing/',
+  },
+  {
+    title: 'Cleaning',
+    summary: 'Light and deep cleaning options matched to the instrument’s condition.',
+    href: '/piano-cleaning/',
+  },
+  {
+    title: 'Repairs',
+    summary: 'Assessment-led help for mechanical concerns, with scope confirmed first.',
+    href: '/piano-repairs/',
+  },
+  {
+    title: 'Pre-purchase consulting',
+    summary: 'A technician’s perspective before committing to a used piano.',
+    href: '/pre-purchase-inspection/',
+  },
+] as const;
+
 export const REQUIRED_ROUTES = [
   '/',
   ...SERVICES.map((service) => `/${service.slug}/`),
@@ -374,4 +439,5 @@ export const REQUIRED_ROUTES = [
   '/pricing-faq/',
   '/book-contact/',
   '/piano-care-resources/',
+  '/piano-care-approach/',
 ] as const;
