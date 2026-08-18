@@ -63,20 +63,7 @@ const serviceSchema = {
   />
 
   <section class="section section--paper">
-    <div class="service-content shell">
-      <nav class="service-index" aria-label={`${service.title} page sections`}>
-        <p>On this page</p>
-        <ol>
-          {
-            service.sections.map((section) => (
-              <li>
-                <a href={`#${sectionId(section.heading)}`}>{section.heading}</a>
-              </li>
-            ))
-          }
-        </ol>
-      </nav>
-
+    <div class="service-content service-content--single shell">
       <div class="service-sections">
         {
           service.sections.map((section) => (

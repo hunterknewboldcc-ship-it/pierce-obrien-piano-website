@@ -25,6 +25,7 @@ const REQUIRED_ROUTES = [
   '/book-contact/',
   '/piano-care-resources/',
   '/piano-care-approach/',
+  '/services/',
 ];
 
 function requireBuiltSite() {
@@ -181,16 +182,16 @@ function locsFromXml(xml) {
   );
 }
 
-test('the static build contains all 15 required routes', () => {
+test('the static build contains all 16 required routes', () => {
   const pages = requiredPages();
-  assert.equal(pages.length, 15);
+  assert.equal(pages.length, 16);
 });
 
-test('the homepage presents the approved navigation, hero copy, and six service categories', () => {
+test('the homepage presents the approved navigation, hero copy, and services preview', () => {
   const { html } = readBuiltPage('/');
   const text = normaliseText(html);
 
-  for (const label of ['Tuning', 'About Pierce', 'Other Services', 'FAQ', 'Resources']) {
+  for (const label of ['Tuning', 'About Pierce', 'Services', 'FAQ', 'Resources']) {
     assert.match(text, new RegExp(`\\b${label}\\b`), `Homepage is missing ${label} navigation.`);
   }
 
@@ -208,20 +209,55 @@ test('the homepage presents the approved navigation, hero copy, and six service 
   assert.doesNotMatch(text, /Piano care in motion\./);
   assert.doesNotMatch(text, /Useful answers before you book\./);
 
-  for (const category of [
-    'Tuning',
-    'Regulation',
-    'Voicing',
-    'Cleaning',
-    'Repairs',
-    'Pre-purchase consulting',
+  assert.match(text, /Care for pitch, touch, tone, and condition\./);
+
+  for (const anchor of [
+    'tuning',
+    'regulation',
+    'voicing',
+    'cleaning',
+    'repairs',
+    'pre-purchase-consulting',
   ]) {
-    assert.match(
-      text,
-      new RegExp(category),
-      `Homepage is missing the ${category} service category.`,
-    );
+    assert.match(html, new RegExp(`href="/services/#${anchor}"`));
   }
+});
+
+test('the services page provides every category, stable anchors, prices, and resource links', () => {
+  const { html } = readBuiltPage('/services/');
+  const text = normaliseText(html);
+
+  for (const expected of [
+    'Tuning',
+    '$225 fine tuning',
+    'Regulation',
+    '$200 touch-up',
+    'Voicing',
+    'Quoted after assessment',
+    'Cleaning',
+    '$75 light cleaning',
+    'Repairs',
+    '$120 per hour',
+    'Pre-purchase consulting',
+    '$100 plus travel',
+    'Travel is included within 20 miles',
+  ]) {
+    assert.ok(text.includes(expected), `Services & Pricing is missing: ${expected}`);
+  }
+
+  for (const anchor of [
+    'tuning',
+    'regulation',
+    'voicing',
+    'cleaning',
+    'repairs',
+    'pre-purchase-consulting',
+  ]) {
+    assert.match(html, new RegExp(`id="${anchor}"`));
+  }
+
+  assert.match(html, /href="\/piano-care-resources\/"/);
+  assert.match(html, new RegExp(GAZELLE_BOOKING_URL.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
 });
 
 test('the legacy Regulation & Voicing URL redirects to Regulation', () => {
@@ -370,6 +406,22 @@ test('rendered HTML contains no stale legacy content or unapproved testimonial m
   }
 
   assert.deepEqual(failures, [], failures.join('\n'));
+});
+
+test('service pages omit the retired on-page navigation', () => {
+  for (const service of [
+    'piano-tuning',
+    'pitch-raise',
+    'tuning-after-moving',
+    'piano-repairs',
+    'regulation',
+    'voicing',
+    'piano-cleaning',
+    'pre-purchase-inspection',
+  ]) {
+    const { html } = readBuiltPage(`/${service}/`);
+    assert.doesNotMatch(html, />On this page</i, `${service} still has the on-page navigation.`);
+  }
 });
 
 test('questionnaire-backed pricing, credentials, and travel details render without unfinished copy', () => {

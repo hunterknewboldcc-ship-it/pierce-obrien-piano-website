@@ -1,5 +1,11 @@
 ---
 import { SERVICE_CATEGORIES } from '../content/site';
+
+interface Props {
+  showPricing?: boolean;
+}
+
+const { showPricing = false } = Astro.props;
 ---
 
 <div class="service-rail">
@@ -7,7 +13,10 @@ import { SERVICE_CATEGORIES } from '../content/site';
     SERVICE_CATEGORIES.map((service) => (
       <a class="service-row" href={service.href}>
         <h3>{service.title}</h3>
-        <p>{service.summary}</p>
+        <div class="service-row-copy">
+          <p>{service.summary}</p>
+          {showPricing && <span class="service-price">{service.price}</span>}
+        </div>
         <svg class="service-arrow" viewBox="0 0 20 20" aria-hidden="true">
           <path
             d="M3 10h13m-5-5 5 5-5 5"

@@ -1,0 +1,56 @@
+---
+import PageIntro from '../components/PageIntro.astro';
+import { MEDIA } from '../content/media';
+import { SERVICE_CATEGORIES, SITE } from '../content/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Piano Services | Pierce O’Brien Piano"
+  description="Explore piano tuning, regulation, voicing, cleaning, repair, and pre-purchase consulting from Pierce O’Brien Piano."
+>
+  <PageIntro
+    title="Care for pitch, touch, tone, and condition."
+    introduction="These services support a piano’s tone, touch, reliability, and long-term condition, with care matched to the instrument in front of Pierce."
+    image={MEDIA.tuning}
+    imageAlt="Pierce O’Brien tuning a grand piano in a room lined with books"
+    actionLabel="Book a Service"
+    actionHref={SITE.booking.href}
+  />
+
+  <section class="section section--paper">
+    <div class="services-detail shell">
+      {
+        SERVICE_CATEGORIES.map((service) => (
+          <article class="service-detail" id={service.anchor}>
+            <div class="service-detail__content">
+              <h2>{service.title}</h2>
+              <p>{service.description}</p>
+              {service.resource && (
+                <a class="service-detail__resource" href={service.resource.href}>
+                  {service.resource.label}
+                  <span aria-hidden="true">→</span>
+                </a>
+              )}
+            </div>
+            <p class="service-detail__price">
+              <span>Pricing</span>
+              {service.price}
+            </p>
+          </article>
+        ))
+      }
+      <p class="services-travel-note">
+        Travel is included within 20 miles of Pierce’s service base. Beyond that, travel is billed
+        at $0.65 per mile round trip.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="services-closing shell">
+      <h2>Care that starts with the piano in front of you.</h2>
+      <a class="button button--primary" href={SITE.booking.href}>Book a Service</a>
+    </div>
+  </section>
+</BaseLayout>

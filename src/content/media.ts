@@ -5,6 +5,7 @@ import portrait from '../assets/photos/pierce-owner-portrait-vertical.webp';
 import rptEvent from '../assets/photos/pierce-owner-rpt-convention.webp';
 import tuningFestival from '../assets/photos/pierce-owner-tuning-festival.webp';
 import tuning from '../assets/photos/pierce-owner-tuning-library.webp';
+import tuningDetail from '../assets/photos/pierce-piano-tuning-detail.webp';
 import workingMonochrome from '../assets/photos/pierce-owner-tuning-monochrome.webp';
 import hero from '../assets/photos/pierce-tuning-grand-hero.webp';
 import regulation from '../assets/photos/upright-action-regulation.webp';
@@ -20,6 +21,7 @@ export const MEDIA = {
   rptEvent,
   serviceVideoPoster,
   tuning,
+  tuningDetail,
   tuningFestival,
   venueVideoPoster,
   voicing,

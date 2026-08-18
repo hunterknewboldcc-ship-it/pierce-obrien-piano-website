@@ -88,7 +88,7 @@ export const pendingFacts = [
 export const NAVIGATION = [
   { label: 'Tuning', href: '/piano-tuning/' },
   { label: 'About Pierce', href: '/about-pierce/' },
-  { label: 'Other Services', href: '/#services' },
+  { label: 'Services', href: '/services/' },
   { label: 'FAQ', href: '/pricing-faq/#faq' },
   { label: 'Resources', href: '/piano-care-resources/' },
 ] as const;
@@ -108,7 +108,7 @@ export type Service = {
   metaDescription: string;
   summary: string;
   introduction: string;
-  image: 'tuning' | 'regulation' | 'voicing' | 'cleaning' | 'hero';
+  image: 'tuning' | 'tuningDetail' | 'regulation' | 'voicing' | 'cleaning' | 'hero';
   imageAlt: string;
   sections: ContentSection[];
   related: string[];
@@ -125,8 +125,8 @@ export const SERVICES: Service[] = [
     summary: 'Pitch-focused service with careful listening and a whole-instrument assessment.',
     introduction:
       'Pierce tunes by ear, assessing the piano’s pitch, condition, touch, and tonal character before tuning. Pitch raises and post-move care begin with the same whole-instrument perspective.',
-    image: 'tuning',
-    imageAlt: 'Pierce O’Brien tuning a grand piano in a room lined with books',
+    image: 'tuningDetail',
+    imageAlt: 'Pierce O’Brien tuning a grand piano with its lid open',
     sections: [
       {
         heading: 'What tuning addresses',
@@ -403,34 +403,79 @@ export const SERVICE_BY_SLUG = new Map(SERVICES.map((service) => [service.slug, 
 
 export const SERVICE_CATEGORIES = [
   {
+    anchor: 'tuning',
     title: 'Tuning',
     summary: 'Tuning, pitch raises, and post-move care shaped by the whole instrument.',
-    href: '/piano-tuning/',
+    description:
+      'Keeps the piano at proper pitch and helps it perform consistently as seasonal humidity and regular playing affect the instrument.',
+    price: '$225 fine tuning · pitch raise $75–$150 additional',
+    resource: {
+      href: '/piano-care-resources/',
+      label: 'Read about tuning intervals and climate',
+    },
+    href: '/services/#tuning',
   },
   {
+    anchor: 'regulation',
     title: 'Regulation',
     summary: 'Careful work on touch, action response, and mechanical consistency.',
-    href: '/regulation/',
+    description:
+      'Careful adjustment of the action so touch, repetition, response, and mechanical consistency feel even across the keyboard.',
+    price: '$200 touch-up · up to $1,000 for full regulation',
+    resource: {
+      href: '/piano-care-resources/',
+      label: 'Understand tuning, regulation, and voicing',
+    },
+    href: '/services/#regulation',
   },
   {
+    anchor: 'voicing',
     title: 'Voicing',
     summary: 'Tonal refinement shaped around the piano and the person playing it.',
-    href: '/voicing/',
+    description:
+      'Tonal refinement that shapes brightness, warmth, and balance around the piano, the room, and the player’s preferences.',
+    price: 'Quoted after assessment',
+    resource: {
+      href: '/piano-care-resources/',
+      label: 'Understand tuning, regulation, and voicing',
+    },
+    href: '/services/#voicing',
   },
   {
+    anchor: 'cleaning',
     title: 'Cleaning',
     summary: 'Light and deep cleaning options matched to the instrument’s condition.',
-    href: '/piano-cleaning/',
+    description:
+      'Light or deeper cleaning options matched to the piano’s condition, including accessible interior and exterior areas.',
+    price: '$75 light cleaning · $200 deep cleaning',
+    resource: {
+      href: '/piano-care-resources/',
+      label: 'Compare light and deep cleaning',
+    },
+    href: '/services/#cleaning',
   },
   {
+    anchor: 'repairs',
     title: 'Repairs',
     summary: 'Assessment-led help for mechanical concerns, with scope confirmed first.',
-    href: '/piano-repairs/',
+    description:
+      'Assessment-led repair work for mechanical issues, worn components, and performance concerns, with recommendations prioritized by need.',
+    price: '$120 per hour, billed in 15-minute increments',
+    resource: null,
+    href: '/services/#repairs',
   },
   {
+    anchor: 'pre-purchase-consulting',
     title: 'Pre-purchase consulting',
     summary: 'A technician’s perspective before committing to a used piano.',
-    href: '/pre-purchase-inspection/',
+    description:
+      'An independent technician’s perspective before committing to a used piano, including condition, anticipated work, and potential concerns.',
+    price: '$100 plus travel · up to one hour',
+    resource: {
+      href: '/piano-care-resources/',
+      label: 'Read what to know before buying used',
+    },
+    href: '/services/#pre-purchase-consulting',
   },
 ] as const;
 
@@ -443,4 +488,5 @@ export const REQUIRED_ROUTES = [
   '/book-contact/',
   '/piano-care-resources/',
   '/piano-care-approach/',
+  '/services/',
 ] as const;
