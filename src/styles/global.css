@@ -977,12 +977,14 @@ ol:last-child {
 .page-intro-grid {
   position: relative;
   z-index: 1;
-  display: grid;
-  min-height: min(30rem, calc(100svh - var(--header-height)));
-  grid-template-columns: minmax(0, 1.05fr) minmax(21rem, 0.75fr);
-  gap: clamp(1.35rem, 3vw, 3rem);
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.75rem, 3.5vw, 3rem);
   padding-block: clamp(2.25rem, 4vw, 3.75rem);
+}
+
+.page-intro-copy {
+  max-width: 46rem;
 }
 
 .breadcrumbs {
@@ -1030,7 +1032,7 @@ ol:last-child {
 
 .page-intro-media {
   overflow: hidden;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 16 / 9;
   border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
@@ -1427,8 +1429,7 @@ ol:last-child {
     font-size: 0.84rem;
   }
 
-  .hero-grid,
-  .page-intro-grid {
+  .hero-grid {
     grid-template-columns: 1fr;
   }
 

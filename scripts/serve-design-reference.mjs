@@ -26,6 +26,8 @@ const server = createServer((request, response) => {
   response.end('Not found');
 });
 
-server.listen(4322, '127.0.0.1', () => {
-  console.log('Design reference available at http://127.0.0.1:4322/');
+const port = Number(process.env.PORT) || 4322;
+
+server.listen(port, '127.0.0.1', () => {
+  console.log(`Design reference available at http://127.0.0.1:${port}/`);
 });
