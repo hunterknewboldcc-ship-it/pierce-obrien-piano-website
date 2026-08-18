@@ -12,6 +12,7 @@ interface Props {
   imagePosition?: string;
   actionLabel?: string;
   actionHref?: string;
+  showPianoCareApproach?: boolean;
 }
 
 const {
@@ -22,6 +23,7 @@ const {
   imagePosition = 'center',
   actionLabel = 'Book Now',
   actionHref = SITE.booking.href,
+  showPianoCareApproach = true,
 } = Astro.props;
 ---
 
@@ -33,7 +35,16 @@ const {
       </nav>
       <h1>{title}</h1>
       <p>{introduction}</p>
-      <a class="button button--primary" href={actionHref}>{actionLabel}</a>
+      <div class="page-intro-actions">
+        <a class="button button--primary" href={actionHref}>{actionLabel}</a>
+        {
+          showPianoCareApproach && (
+            <a class="button button--outline" href="/piano-care-approach/">
+              Piano Care Approach
+            </a>
+          )
+        }
+      </div>
     </div>
     <div
       class="page-intro-media"

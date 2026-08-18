@@ -222,6 +222,14 @@ ol:last-child {
   white-space: nowrap;
 }
 
+.wordmark::before {
+  margin-right: 0.3em;
+  content: '𝄞';
+  font-family: Georgia, serif;
+  font-size: 1.2em;
+  line-height: 1;
+}
+
 .desktop-nav {
   display: flex;
   align-items: center;
@@ -360,7 +368,7 @@ ol:last-child {
   font-size: clamp(21rem, 35vw, 40rem);
   font-weight: 400;
   line-height: 0.8;
-  opacity: 0.2;
+  opacity: 0.45;
   pointer-events: none;
 }
 
@@ -962,7 +970,7 @@ ol:last-child {
   font-size: clamp(21rem, 35vw, 40rem);
   font-weight: 400;
   line-height: 0.8;
-  opacity: 0.2;
+  opacity: 0.45;
   pointer-events: none;
 }
 
@@ -1004,6 +1012,20 @@ ol:last-child {
   margin-bottom: 1.35rem;
   color: #cbc6bb;
   font-size: clamp(1.05rem, 1.5vw, 1.22rem);
+}
+
+.page-intro-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.page-intro .button--outline {
+  color: var(--paper);
+}
+
+.page-intro .button--outline:hover {
+  color: var(--gold-hover);
 }
 
 .page-intro-media {
